@@ -11,12 +11,9 @@ from nltk.probability import FreqDist
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import re
 from sklearn.feature_selection import VarianceThreshold
-import copy
-from sumy.nlp.tokenizers import Tokenizer
-from sumy.parsers.plaintext import PlaintextParser
-from sumy.summarizers.lex_rank import LexRankSummarizer
-import csv
 import pandas as pd
+import math
+from collections import defaultdict
 
 stop_words_all = ['must', 'musnt', 'can', 'cant', 'could', 'couldnt', 'need', 'needs', 'should', 'shouldnt', 'is', 'isnt', 'are', 'arent', 'would',
               'wouldnt', 'aint', 'had', 'has', 'hasnt', 'have', 'hadnt', 'havent', 'having', 'it', 'its', 'itself',
@@ -36,7 +33,7 @@ stop_words_all = ['must', 'musnt', 'can', 'cant', 'could', 'couldnt', 'need', 'n
 # nltk.download('stopwords')
 # nltk.download('punkt')
 # nltk.download('averaged_perceptron_tagger')
-nltk.download('vader_lexicon')
+# nltk.download('vader_lexicon')
 stop_words = set(stopwords.words('english'))
 stemmer = SnowballStemmer("english")
 
@@ -64,6 +61,28 @@ def flatten(list_of_lists):
             flattened_list.append(y)
     return flattened_list
 
+def calc_document_frequencies(all_texts):
+    wordsAlreadyChecked = []
+    DF = defaultdict(int)
+
+    for text in all_texts:
+        text = text.lower()
+        words = re.compile('\w+').findall(text)
+        for word in words:
+            if word not in wordsAlreadyChecked and word not in stop_words_all and not word.isdigit():
+                DF[word] += 1
+                wordsAlreadyChecked.append(word)
+        wordsAlreadyChecked = []
+    return DF
+
+def calc_inverse_document_frequencies(document_frequencies, number_of_documents):
+    IDF = defaultdict(int)
+    print(number_of_documents)
+
+    for key, value in document_frequencies.items():
+        IDF[key] = math.log((number_of_documents/(1+value)), 10)
+
+    return IDF
 
 # Extract features from a given text
 def extract_features(text):
@@ -85,32 +104,15 @@ def extract_features(text):
     # tokenize review to sentences
     sent = sent_tokenize(text)
 
-    # get the first and last two sentences per review
-    # if len(sent) >= 4:
-    #     first_and_last_sent = ' '.join([sent[0], sent[1], sent[-2], sent[-1]])
-    # else:
-    #     first_and_last_sent = ' '.join(sent)
-    # print('First 2 / Last 2:')
-    # print(first_and_last_sent)
-    # print()
-
-    # # Automatic summarization
-    # summarizer = LexRankSummarizer()
-    # parser = PlaintextParser.from_string(text, Tokenizer("english"))
-    # summary = summarizer(parser.document, 6)
-    # summary = list(summary)
-    # summary_str = ''
-    # for s in summary:
-    #     summary_str = summary_str + str(s) + ' '
-    #
-    # print('Automatic Summary')
-    # print(summary_str)
-    # print()
-
     sid = SentimentIntensityAnalyzer()
 
 
     features = []
+
+    for key, value in inverse_document_frequencies.items():
+        tf_idf = text.count(key) * value
+        features.append(tf_idf)
+
     # Example feature 1: count the number of words
     features.append(len(bag_of_words))
 
@@ -402,6 +404,7 @@ def extract_features(text):
     return features
 
 
+
 # Classify using the features
 def classify(train_features, train_labels, test_features):
     # TODO: (Optional) If you would like to test different how classifiers would perform different, you can alter
@@ -427,9 +430,16 @@ def main():
     train_data = load_train_data()
     print("Data loaded")
 
+    all_text = train_data[:, 0]
+    document_frequencies = calc_document_frequencies(all_text)
+    frequent_word_frequencies = {k: v for k, v in document_frequencies.items() if v > 1}
+    global inverse_document_frequencies
+    inverse_document_frequencies = calc_inverse_document_frequencies(frequent_word_frequencies, len(all_text))
+    print(inverse_document_frequencies)
     print("Extracting features...")
     # Extract the features
     features = list(map(extract_features, train_data[:, 0]))
+    #features = list(map(extract_features, train_data[:, 0]), inverse_document_frequencies)
     print("Features extracted")
 
     # Select features with enough variance
