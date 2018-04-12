@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.myfirstapp.Main2Activity">
+
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="590dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="340dp"
+            android:layout_height="145dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:text="Click on the position in the rose to which the following sentence belowns:
+
+
+Ik heb gehoord dat de parking betalend wordt."
+            android:textColor="#808080"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="341dp"
+            android:layout_height="333dp"
+            android:layout_above="@+id/button"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_marginBottom="12dp"
+            app:srcCompat="@drawable/learysrose"/>
+            #android:onTouch = "onTouch"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="149dp"
+            android:layout_height="38dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="#6ACCCB"
+            android:text="Accept"
+            android:textColor="@android:color/white"
+            tools:layout_editor_absoluteX="105dp"
+            tools:layout_editor_absoluteY="542dp" />
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
