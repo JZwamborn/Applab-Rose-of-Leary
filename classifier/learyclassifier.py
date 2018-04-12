@@ -10,12 +10,27 @@ from nltk.stem.snowball import SnowballStemmer
 from nltk.probability import FreqDist
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import re
+from sklearn.feature_selection import VarianceThreshold
 import copy
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.summarizers.lex_rank import LexRankSummarizer
 import csv
 import pandas as pd
+
+stop_words_all = ['must', 'musnt', 'can', 'cant', 'could', 'couldnt', 'need', 'needs', 'should', 'shouldnt', 'is', 'isnt', 'are', 'arent', 'would',
+              'wouldnt', 'aint', 'had', 'has', 'hasnt', 'have', 'hadnt', 'havent', 'having', 'it', 'its', 'itself',
+               'than', 'where', 'does', 'doesnt', 'dont', 'do', 'didnt', 'did', 'were', 'werent', 'before',
+              'doing', 'a', 'an', 'so', 'own', 'above', 'and', 'such', 'then', 'from',
+              'for', 'any', 'how', 'again', 'very', 'but', 'once', 'because',
+              'some', 'wont', 'to', 'these', 'with', 'the', 'them', 'both', 'few', 'after', 'wasnt',
+              'be', 'been', 'against', 'on', 'off', 'too', 'under', 'why', 'who', 'our', 'in', 'if', 'other',
+              'until', 'down', 'during', 'was', 'over', 'those', 'further', 'same', 'that', 'thats', 'of', 'up',
+              'what', 'just', 'will', 'as', 'no', 'each', 'being', 'now', 'all', 'by', 'into', 'when', 'most',
+              'not', 'theirs', 'they', 'at', 'out', 'below', 'whom', 'nor', 'here', 'through', 'more', 'or',
+              'only', 'about', 'which', 'there', 'theres', 'this', 'between', 'while', 'might', 'she', 'shes', 'shell', 'her', 'herself',
+              'he', 'hes', 'hell', 'him', 'his', 'himself', 'i', 'me', 'myself', 'my', 'im', 'id', 'ill', 'am', 'you', 'youre', 'youll', 'your', 'yours',
+              'yourself', 'youve', 'youd', 'we']
 
 # Download the 'stopwords' and 'punkt' from the Natural Language Toolkit, you can comment the next lines if already present.
 # nltk.download('stopwords')
@@ -380,6 +395,10 @@ def extract_features(text):
     features.append(ss.get('neu'))
     features.append(ss.get('compound'))
 
+    for stopword in stop_words_all:
+        stopwordFreq = sum(1 for _ in re.finditer(r'\b%s\b' % re.escape(stopword), text))
+        features.append(stopwordFreq)
+
     return features
 
 
@@ -413,11 +432,16 @@ def main():
     features = list(map(extract_features, train_data[:, 0]))
     print("Features extracted")
 
+    # Select features with enough variance
+    sel = VarianceThreshold(threshold=0.1)
+    features = sel.fit_transform(features)
+
     # Classify and evaluate
     print("Start classification")
     skf = sklearn.model_selection.StratifiedKFold(n_splits=10)
     scores = []
     y = train_data[:, 1].astype(int)
+
     for fold_id, (train_indexes, validation_indexes) in enumerate(skf.split(train_data[:, 0], y)):
         # Print the fold number
         print("Fold %d" % (fold_id + 1))
@@ -427,6 +451,7 @@ def main():
         train_labels = [y[x] for x in train_indexes]
         validation_features = [features[x] for x in validation_indexes]
         validation_labels = [y[x] for x in validation_indexes]
+
 
         # Classify and add the scores to be able to average later
         y_pred = classify(train_features, train_labels, validation_features)
