@@ -13,10 +13,7 @@ import Classifier_majority
 import Classifier_logisticRegression
 import Classifier_ecoc_svm
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 3b74312406bc3da9190ffe86064ec26bf7974c73
 def classify(folds, classifier):
     scores = []
     for (train_data, train_labels, validation_data, validation_labels) in folds:
@@ -24,7 +21,7 @@ def classify(folds, classifier):
         idf_vectorizer(train_data)
         generate_stemmed_bigrams(train_data)
         print(generate_functionword_trigrams(train_data))
-        #print(calc_document_frequencies_stemmed_words(train_data))
+        # print(calc_document_frequencies_stemmed_words(train_data))
 
         # Features are extracted
         feature_matrix_train = list(map(extract_features, train_data))
@@ -36,22 +33,18 @@ def classify(folds, classifier):
         # feature_matrix_train = sel.transform(feature_matrix_train)
         # feature_matrix_validation = sel.transform(feature_matrix_validation)
 
-
         # Oversampling is used to balance out dataset
         # feature_matrix_train, train_labels = SMOTE().fit_sample(feature_matrix_train, train_labels)
 
         validation_prediction = classifier.fit_and_predict(feature_matrix_train, train_labels, feature_matrix_validation)
-        classifier1 = classifier
-
 
         print(confusion_matrix(validation_labels, validation_prediction, labels=['LO', 'LB', 'RO', 'RB']))
-
-
         score = evaluate(validation_labels, validation_prediction)
         scores.append(score)
 
     average_scores(scores)
     return average_scores
+
 
 def compare_performances():
     folds = eight_labels()
@@ -62,6 +55,7 @@ def compare_performances():
         classify(folds, clf)
         print("******************")
 
+
 def predict_one_sample(sample, classifier):
     # extract features from the sample
     features = extract_features(sample)
@@ -70,20 +64,14 @@ def predict_one_sample(sample, classifier):
     prediction = classifier.predict(features)
     return prediction
 
+
 def main():
     folds = eight_labels()
-<<<<<<< HEAD
     classifier = Classifier_ecoc_svm.SVM()
     classify(folds, classifier)
     prediction = predict_one_sample("You are a stupid bitch", classifier)
     print(prediction)
-=======
-    classify(folds, Classifier_ecoc_svm)
->>>>>>> 3b74312406bc3da9190ffe86064ec26bf7974c73
-    #compare_performances()
-
-
-
+    # compare_performances()
 
 if __name__ == '__main__':
     main()

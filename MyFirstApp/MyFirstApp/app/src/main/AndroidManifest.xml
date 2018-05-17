@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CustomViewActivity"></activity>
+        <activity android:name=".ClassifierActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
