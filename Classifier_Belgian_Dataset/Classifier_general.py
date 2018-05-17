@@ -13,7 +13,10 @@ import Classifier_majority
 import Classifier_logisticRegression
 import Classifier_ecoc_svm
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3b74312406bc3da9190ffe86064ec26bf7974c73
 def classify(folds, classifier):
     scores = []
     for (train_data, train_labels, validation_data, validation_labels) in folds:
@@ -38,6 +41,7 @@ def classify(folds, classifier):
         # feature_matrix_train, train_labels = SMOTE().fit_sample(feature_matrix_train, train_labels)
 
         validation_prediction = classifier.fit_and_predict(feature_matrix_train, train_labels, feature_matrix_validation)
+        classifier1 = classifier
 
 
         print(confusion_matrix(validation_labels, validation_prediction, labels=['LO', 'LB', 'RO', 'RB']))
@@ -58,10 +62,24 @@ def compare_performances():
         classify(folds, clf)
         print("******************")
 
+def predict_one_sample(sample, classifier):
+    # extract features from the sample
+    features = extract_features(sample)
+
+    # let the classfier predict based on the sample
+    prediction = classifier.predict(features)
+    return prediction
 
 def main():
     folds = eight_labels()
+<<<<<<< HEAD
+    classifier = Classifier_ecoc_svm.SVM()
+    classify(folds, classifier)
+    prediction = predict_one_sample("You are a stupid bitch", classifier)
+    print(prediction)
+=======
     classify(folds, Classifier_ecoc_svm)
+>>>>>>> 3b74312406bc3da9190ffe86064ec26bf7974c73
     #compare_performances()
 
 
