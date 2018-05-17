@@ -29,7 +29,7 @@ public class ClassifierActivity extends AppCompatActivity {
         setContentView(R.layout.activity_classifier);
         button = (Button)findViewById(R.id.button3);
         //textView = (TextView) findViewById(R.id.textView4);
-        //textView2 = (TextView) findViewById(R.id.textView2);
+        textView2 = (TextView) findViewById(R.id.textView2);
         //editText2 = (EditText) findViewById(R.id.editText2);
         editText = (EditText) findViewById(R.id.editText4);
         final String name = editText.getText().toString();
@@ -87,7 +87,7 @@ public class ClassifierActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String line) {
-            editText.setText(line);
+            textView2.setText(line);
         }
     }
 }

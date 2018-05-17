@@ -19,7 +19,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="49dp"
-            android:text="Social interaction training"
+            android:text="[Situation to respond to]"
             android:textColor="#808080"
             android:textSize="24sp" />
 
@@ -27,51 +27,34 @@
             android:id="@+id/editText4"
             android:layout_width="341dp"
             android:layout_height="41dp"
-            android:layout_below="@+id/textView4"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="130dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="111dp"
             android:backgroundTint="#6ACCCB"
-            android:textColor="#808080"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Username" />
+            android:textColor="#808080" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="250dp"
             android:layout_height="46dp"
-            android:layout_alignEnd="@+id/textView2"
-            android:layout_alignRight="@+id/textView2"
-            android:layout_below="@+id/editText2"
-            android:layout_marginTop="62dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="38dp"
             android:background="#6ACCCB"
-            android:text="Login"
-            android:textColor="@android:color/white"
-            android:onClick = "login" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="341dp"
-            android:layout_height="41dp"
-            android:layout_alignLeft="@+id/editText4"
-            android:layout_alignStart="@+id/editText4"
-            android:backgroundTint="#6ACCCB"
-            android:textColor="#808080"
-            android:layout_below="@+id/editText4"
-            android:layout_marginTop="40dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:text="Password" />
+            android:onClick="login"
+            android:text="Send"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView4"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="27dp"
-            android:text="Using the Rose of Leary"
+            android:layout_marginBottom="187dp"
+            android:text="[result]"
             android:textColor="#808080"
             android:textSize="24sp" />/>
 
