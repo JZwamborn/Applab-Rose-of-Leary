@@ -56,7 +56,7 @@ def make_function_word_trigrams(words):
 def calc_ngram_occurence(ngrams, queriedNgram):
     numberOfngramOccurences = 0
     for ngram in ngrams:
-        if ngram==queriedNgram:
+        if ngram == queriedNgram:
             numberOfngramOccurences += 1
     return numberOfngramOccurences
 
@@ -87,7 +87,7 @@ def extract_features(text):
     tagged_words = pos_tag(tokens)
     for posTag in possibleTags:
         features.append(len([x for x in tagged_words if x[1] == posTag]))
-    
+
     
     # word frequencies
     IDF = InverseDocumentFrequentizer.getIDF()
@@ -100,23 +100,23 @@ def extract_features(text):
     for key, value in all_bigrams.items():
         number_of_bigram_occurences = calc_ngram_occurence(bigrams, key)
         features.append(number_of_bigram_occurences)
-    '''
+
     trigrams = make_function_word_trigrams(words_only)
     all_trigrams = InverseDocumentFrequentizer.getFunctionWordTrigrams()
     for key, value in all_trigrams.items():
         number_of_trigram_occurences = calc_ngram_occurence(trigrams, key)
         features.append(number_of_trigram_occurences)
-    '''
+
     # character frequencies
     for character in characters:
         number_of_character_occurences = text.count(character)
         features.append(number_of_character_occurences)
-    '''
-    character_trigrams = make_trigrams(list(text))
-    all_character_trigrams = InverseDocumentFrequentizer.characterTrigrams
-    for key, value in all_character_trigrams.items():
-        number_of_trigram_occurences = calc_ngram_occurence(character_trigrams, key)
-        features.append(number_of_trigram_occurences)
-    '''
+
+    # character_trigrams = make_trigrams(list(text))
+    # all_character_trigrams = InverseDocumentFrequentizer.generate_character_trigrams(list(text))
+    # for key, value in all_character_trigrams.items():
+    #     number_of_trigram_occurences = calc_ngram_occurence(character_trigrams, key)
+    #     features.append(number_of_trigram_occurences)
+    #
     return features
 

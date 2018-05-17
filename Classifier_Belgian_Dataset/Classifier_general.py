@@ -14,7 +14,7 @@ import Classifier_logisticRegression
 import Classifier_ecoc_svm
 
 
-def classify(folds, number_of_classes, classifier):
+def classify(folds, classifier):
     scores = []
     for (train_data, train_labels, validation_data, validation_labels) in folds:
 
@@ -28,23 +28,19 @@ def classify(folds, number_of_classes, classifier):
         feature_matrix_validation = list(map(extract_features, validation_data))
 
         # Select features with enough variance
-        #sel = VarianceThreshold(threshold=0.3)
-        #sel = sel.fit(feature_matrix_train)
-        #feature_matrix_train = sel.transform(feature_matrix_train)
-        #feature_matrix_validation = sel.transform(feature_matrix_validation)
+        # sel = VarianceThreshold(threshold=0.1)
+        # sel = sel.fit(feature_matrix_train)
+        # feature_matrix_train = sel.transform(feature_matrix_train)
+        # feature_matrix_validation = sel.transform(feature_matrix_validation)
 
 
         # Oversampling is used to balance out dataset
-        #feature_matrix_train, train_labels = SMOTE().fit_sample(feature_matrix_train, train_labels)
+        # feature_matrix_train, train_labels = SMOTE().fit_sample(feature_matrix_train, train_labels)
 
         validation_prediction = classifier.fit_and_predict(feature_matrix_train, train_labels, feature_matrix_validation)
 
 
-        if number_of_classes == 4:
-            print(confusion_matrix(validation_labels, validation_prediction, labels=['SAMEN-BOVEN', 'SAMEN-ONDER', 'TEGEN-ONDER', 'TEGEN-BOVEN']))
-
-        elif number_of_classes == 8:
-            print(confusion_matrix(validation_labels, validation_prediction, labels=['LEIDEND', 'HELPEND', 'MEEWERKEND', 'VOLGEND', 'TERUGGETROKKEN', 'OPSTANDIG', 'AANVALLEND', 'COMPETITIEF']))
+        print(confusion_matrix(validation_labels, validation_prediction, labels=['LO', 'LB', 'RO', 'RB']))
 
 
         score = evaluate(validation_labels, validation_prediction)
@@ -59,13 +55,14 @@ def compare_performances():
                           ['Random Forest', 'Ada boost', 'Logistic Regression', 'Naive Bayes', 'Support Vector Machine',
                            'Majority vote']):
         print(label)
-        classify(folds, 8, clf)
+        classify(folds, clf)
         print("******************")
 
 
 def main():
     folds = eight_labels()
-    classify(folds, 8, Classifier_ecoc_svm)
+    classify(folds, Classifier_ecoc_svm)
+    #compare_performances()
 
 
 
