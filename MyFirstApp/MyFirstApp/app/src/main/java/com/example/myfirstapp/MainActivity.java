@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_activity);
         button = (Button)findViewById(R.id.button3);
         textView = (TextView) findViewById(R.id.textView4);
         textView2 = (TextView) findViewById(R.id.textView2);
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, CustomViewActivity.class));
+                startActivity(new Intent(MainActivity.this, HomeScreen.class));
             }
         });
     }

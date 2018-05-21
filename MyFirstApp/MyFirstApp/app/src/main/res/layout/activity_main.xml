@@ -29,13 +29,13 @@
             android:layout_height="41dp"
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="130dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="130dp"
             android:backgroundTint="#6ACCCB"
-            android:textColor="#808080"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Username" />
+            android:text="Username"
+            android:textColor="#808080" />
 
         <Button
             android:id="@+id/button3"
@@ -46,9 +46,9 @@
             android:layout_below="@+id/editText2"
             android:layout_marginTop="62dp"
             android:background="#6ACCCB"
+            android:onClick="login"
             android:text="Login"
-            android:textColor="@android:color/white"
-            android:onClick = "login" />
+            android:textColor="@android:color/white" />
 
         <EditText
             android:id="@+id/editText2"
@@ -56,13 +56,13 @@
             android:layout_height="41dp"
             android:layout_alignLeft="@+id/editText4"
             android:layout_alignStart="@+id/editText4"
-            android:backgroundTint="#6ACCCB"
-            android:textColor="#808080"
             android:layout_below="@+id/editText4"
             android:layout_marginTop="40dp"
+            android:backgroundTint="#6ACCCB"
             android:ems="10"
             android:inputType="textPassword"
-            android:text="Password" />
+            android:text="Password"
+            android:textColor="#808080" />
 
         <TextView
             android:id="@+id/textView2"

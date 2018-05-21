@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--tools:context=".Dashboard_standard"-->
+
+    <LinearLayout
+        android:id="@+id/Dashboard_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">>
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/Button_Dashboard_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:background="#6ACCCB"
+                android:onClick="clickButton"
+                android:padding="0dp"
+                android:text="Info"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/Button_Dashboard_personal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_marginStart="96dp"
+                android:layout_weight="2"
+                android:background="#6ACCCB"
+                android:onClick="clickButton"
+                android:padding="0dp"
+                android:text="personal"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/Button_Dashboard_progress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_marginEnd="96dp"
+                android:layout_weight="2"
+                android:background="#6ACCCB"
+                android:onClick="clickButton"
+                android:padding="0dp"
+                android:text="PROGRESS"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/Button_Dashboard_training"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:background="#6ACCCB"
+                android:onClick="clickButton"
+                android:padding="0dp"
+                android:text="training"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--Training pagina-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dashboard_training"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="125dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginRight="125dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="111dp"
+        android:text="DASHBOARD"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_training" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Press one of the tabs below to swap to that section"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+
+</android.support.constraint.ConstraintLayout>

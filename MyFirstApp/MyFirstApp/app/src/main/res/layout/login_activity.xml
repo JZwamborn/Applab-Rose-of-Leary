@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="49dp"
+            android:text="Social interaction training"
+            android:textColor="#808080"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="341dp"
+            android:layout_height="41dp"
+            android:layout_below="@+id/textView4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="#6ACCCB"
+            android:textColor="#808080"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Username" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="250dp"
+            android:layout_height="46dp"
+            android:layout_alignEnd="@+id/textView2"
+            android:layout_alignRight="@+id/textView2"
+            android:layout_below="@+id/editText2"
+            android:layout_marginTop="62dp"
+            android:background="#6ACCCB"
+            android:onClick="login"
+            android:text="Login"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="341dp"
+            android:layout_height="41dp"
+            android:layout_alignLeft="@+id/editText4"
+            android:layout_alignStart="@+id/editText4"
+            android:backgroundTint="#6ACCCB"
+            android:textColor="#808080"
+            android:layout_below="@+id/editText4"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="Password" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="27dp"
+            android:text="Using the Rose of Leary"
+            android:textColor="#808080"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

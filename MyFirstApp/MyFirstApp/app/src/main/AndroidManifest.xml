@@ -17,6 +17,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".CustomViewActivity"></activity>
+        <activity android:name=".ScoreScreen"></activity>
+        <activity android:name=".Home"></activity>
+        <activity android:name=".HomeScreen"></activity>
+        <activity android:name=".TabActivity"></activity>
+        <activity android:name=".HomeScreenInfo"></activity>
+        <activity android:name=".HomeScreenPersonal"></activity>
+        <activity android:name=".HomeScreenProgress"></activity>
+        <activity android:name=".HomeScreenTraining"></activity>
+        <!--<fragment android:name=".Fragment_Info"></fragment>
+        <fragment android:name=".Fragment_Personal"></fragment>
+        <fragment android:name=".Fragment_Progress"></fragment>
+        <fragment android:name=".Fragment_Training"></fragment> -->
     </application>
 
 </manifest>

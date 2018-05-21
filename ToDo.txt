@@ -1,0 +1,17 @@
+Franka is clickable roos x en y gefixt, loopt nu van -1 tot 1
+volgende stap is csv inlezen in android studio, let op gesprek ID (gesprekken random kiezen en dan in de goede volgorde gesprek afgaan)
+gesprekken: alleen 'extreme' zinnen gebruiken. (minimale vector lengte).
+Daphne zet vertaling zinnen online
+Daphne draait classifier op andere dataset en kijkt of belgische performance beter is.
+Unbalanced classes (smote voor oversampleling).
+Pipeline is nu opgezet, D gaat features nu overnemen.
+
+
+
+- justinmind usability prep - A justinmind B usability A Franka en Jesse jwz dynamische duo B Yvette
+- java naar python Daphne
+- server opzetten  - Berend - 
+- classifier Daphne
+- Open text question Daphne
+
+

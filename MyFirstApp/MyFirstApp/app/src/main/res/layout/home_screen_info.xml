@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/Dashboard_layout"
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"><![CDATA[>
+
+
+
+        ]]>
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/Button_Dashboard_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:background="#6ACCCB"
+                android:onClick="clickButton"
+                android:padding="0dp"
+                android:text="Info"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/Button_Dashboard_personal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_marginStart="96dp"
+                android:layout_weight="2"
+                android:background="#6ACCCB"
+                android:onClick="clickButton"
+                android:padding="0dp"
+                android:text="personal"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/Button_Dashboard_progress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_marginEnd="96dp"
+                android:layout_weight="2"
+                android:background="#6ACCCB"
+                android:onClick="clickButton"
+                android:padding="0dp"
+                android:text="PROGRESS"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/Button_Dashboard_training"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:background="#6ACCCB"
+                android:onClick="clickButton"
+                android:padding="0dp"
+                android:text="training"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="In order to clarify human behaviour and the interaction between people, Timothy Leary developed a communication model, named the Rose of Leary, based on a horizontal and a vertical axis.  The horizontal axis focusses on relationships with others: In a conversation two people can behave opposed against each other or they can work together and strive to achieve common goals. In his theory Leary states that behaviour on the horizontal axis works in an 'attractive' manner: Opposed behaviour in one person triggers opposed behaviour in the other person, while together behaviour triggers together behaviour.  The vertical axis in the Rose of Leary focusses on attitudes to others: In a conversation a person might either feel above (or dominant) or below (or submissive) his/her conversation partner. A person's behaviour on the vertical axis has a complementary influence on another person's behaviour: If one persons displays 'above' behaviour the other person is inclined to behave more submissive, while a person showing 'below' behaviour triggers another person to automatically be more leading/dominant.  By using this app you will train to place a person's behaviour in the Rose of Leary and you will train to influence other people's behaviour by applying Leary's theory.   "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toTopOf="@+id/Dashboard_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.71"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
