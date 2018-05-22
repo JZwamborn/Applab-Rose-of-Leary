@@ -3,8 +3,10 @@ package com.example.myfirstapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by frank on 13-5-2018.
@@ -16,11 +18,14 @@ public class HomeScreenInfo extends AppCompatActivity {
     Button button_personal = null;
     Button button_progress = null;
     Button button_training = null;
+    TextView information = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen_info);
+        information = (TextView)findViewById(R.id.textView11);
+        information.setMovementMethod(new ScrollingMovementMethod());
         button_info = (Button)findViewById(R.id.Button_Dashboard_info);
         button_personal = (Button)findViewById(R.id.Button_Dashboard_personal);
         button_progress = (Button)findViewById(R.id.Button_Dashboard_progress);

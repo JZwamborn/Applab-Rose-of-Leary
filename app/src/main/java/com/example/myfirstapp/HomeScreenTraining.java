@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
@@ -14,10 +15,10 @@ import android.widget.TextView;
 
 public class HomeScreenTraining extends AppCompatActivity {
 
-    Button button_info = null;
-    Button button_personal = null;
-    Button button_progress = null;
-    Button button_training = null;
+    ImageButton button_info = null;
+    ImageButton button_personal = null;
+    ImageButton button_progress = null;
+    ImageButton button_training = null;
     TextView textView = null;
     TextView textView2 = null;
     TextView textView3 = null;
@@ -32,10 +33,10 @@ public class HomeScreenTraining extends AppCompatActivity {
         textView2 = (TextView) findViewById(R.id.textViewClassify);
         textView3 = (TextView) findViewById(R.id.textView12);
         train = (Button) findViewById(R.id.training_button);
-        button_info = (Button)findViewById(R.id.Button_Dashboard_info);
-        button_personal = (Button)findViewById(R.id.Button_Dashboard_personal);
-        button_progress = (Button)findViewById(R.id.Button_Dashboard_progress);
-        button_training = (Button)findViewById(R.id.Button_Dashboard_training);
+        button_info = (ImageButton)findViewById(R.id.Button_Dashboard_info);
+        button_personal = (ImageButton)findViewById(R.id.Button_Dashboard_personal);
+        button_progress = (ImageButton)findViewById(R.id.Button_Dashboard_progress);
+        button_training = (ImageButton)findViewById(R.id.Button_Dashboard_training);
         //set listeners main buttons training
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override

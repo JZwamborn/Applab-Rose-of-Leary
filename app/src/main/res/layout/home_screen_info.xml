@@ -87,20 +87,32 @@
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="286dp"
+        android:layout_height="197dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="In order to clarify human behaviour and the interaction between people, Timothy Leary developed a communication model, named the Rose of Leary, based on a horizontal and a vertical axis.  The horizontal axis focusses on relationships with others: In a conversation two people can behave opposed against each other or they can work together and strive to achieve common goals. In his theory Leary states that behaviour on the horizontal axis works in an 'attractive' manner: Opposed behaviour in one person triggers opposed behaviour in the other person, while together behaviour triggers together behaviour.  The vertical axis in the Rose of Leary focusses on attitudes to others: In a conversation a person might either feel above (or dominant) or below (or submissive) his/her conversation partner. A person's behaviour on the vertical axis has a complementary influence on another person's behaviour: If one persons displays 'above' behaviour the other person is inclined to behave more submissive, while a person showing 'below' behaviour triggers another person to automatically be more leading/dominant.  By using this app you will train to place a person's behaviour in the Rose of Leary and you will train to influence other people's behaviour by applying Leary's theory.   "
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toTopOf="@+id/Dashboard_layout"
+        android:maxLines = "100"
+        android:scrollbars = "vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="207dp"
+        android:layout_height="205dp"
+        app:srcCompat="@drawable/learysrose"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="16dp" />
 
 </android.support.constraint.ConstraintLayout>

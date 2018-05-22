@@ -31,6 +31,7 @@ public class HomeScreenProgress extends AppCompatActivity {
         button_personal = (Button)findViewById(R.id.Button_Dashboard_personal);
         button_progress = (Button)findViewById(R.id.Button_Dashboard_progress);
         button_training = (Button)findViewById(R.id.Button_Dashboard_training);
+
         //Create barchart
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         barEntries.add(new BarEntry(44f, 0));
