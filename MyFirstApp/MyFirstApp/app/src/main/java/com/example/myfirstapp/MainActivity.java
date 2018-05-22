@@ -28,7 +28,11 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 startActivity(new Intent(MainActivity.this, HomeScreen.class));
+=======
+                startActivity(new Intent(MainActivity.this, ClassifierActivity.class));
+>>>>>>> e66c34ea53a35b4950617c4c4bdf53662307de4c
             }
         });
     }

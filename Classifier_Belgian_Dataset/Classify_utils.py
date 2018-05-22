@@ -7,7 +7,7 @@ import xlsxwriter
 
 
 def read_data():
-    data = pd.read_excel('translated_texts.xlsx')
+    data = pd.read_excel('finaldataZelfZinnenMaken.xlsx')
     data_without_neutrals = data[data.label != 'NEUTRAAL']
     data = data_without_neutrals.reset_index()
     return data

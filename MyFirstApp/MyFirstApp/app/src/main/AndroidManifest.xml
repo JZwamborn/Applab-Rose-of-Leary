@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CustomViewActivity"></activity>
+<<<<<<< HEAD
         <activity android:name=".ScoreScreen"></activity>
         <activity android:name=".Home"></activity>
         <activity android:name=".HomeScreen"></activity>
@@ -29,6 +30,9 @@
         <fragment android:name=".Fragment_Personal"></fragment>
         <fragment android:name=".Fragment_Progress"></fragment>
         <fragment android:name=".Fragment_Training"></fragment> -->
+=======
+        <activity android:name=".ClassifierActivity"></activity>
+>>>>>>> e66c34ea53a35b4950617c4c4bdf53662307de4c
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
