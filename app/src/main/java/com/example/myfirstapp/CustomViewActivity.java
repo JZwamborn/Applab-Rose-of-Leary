@@ -252,7 +252,6 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
 
             }
             else{
-                score += 1;
                 updateAnswer1(false, positionOnRose, posText);
                 im.setVisibility(View.INVISIBLE);
                 lbRed.setVisibility(View.VISIBLE);

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
@@ -14,10 +15,10 @@ import android.widget.TextView;
 
 public class HomeScreenInfo extends AppCompatActivity {
 
-    Button button_info = null;
-    Button button_personal = null;
-    Button button_progress = null;
-    Button button_training = null;
+    ImageButton button_info = null;
+    ImageButton button_personal = null;
+    ImageButton button_progress = null;
+    ImageButton button_training = null;
     TextView information = null;
 
     @Override
@@ -25,11 +26,11 @@ public class HomeScreenInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen_info);
         information = (TextView)findViewById(R.id.textView11);
-        information.setMovementMethod(new ScrollingMovementMethod());
-        button_info = (Button)findViewById(R.id.Button_Dashboard_info);
-        button_personal = (Button)findViewById(R.id.Button_Dashboard_personal);
-        button_progress = (Button)findViewById(R.id.Button_Dashboard_progress);
-        button_training = (Button)findViewById(R.id.Button_Dashboard_training);
+        //information.setMovementMethod(new ScrollingMovementMethod());
+        button_info = (ImageButton)findViewById(R.id.Button_Dashboard_info);
+        button_personal = (ImageButton)findViewById(R.id.Button_Dashboard_personal);
+        button_progress = (ImageButton)findViewById(R.id.Button_Dashboard_progress);
+        button_training = (ImageButton)findViewById(R.id.Button_Dashboard_training);
         //Create listeners also on_creatre
         button_info.setOnClickListener(new View.OnClickListener() {
             @Override
