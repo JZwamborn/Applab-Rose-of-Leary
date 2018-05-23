@@ -1,4 +1,5 @@
 package com.example.myfirstapp;
+import android.support.v7.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.myfirstapp.ColorTool;
+import com.example.myfirstapp.QuestionLibrary;
+import com.example.myfirstapp.R;
+import com.example.myfirstapp.ScoreScreen;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -89,7 +95,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (questionNumber < 9) {
+                if (questionNumber < 10) {
                     updateQuestions();
                     updateAnswer2();
                     button.setVisibility(View.INVISIBLE);
