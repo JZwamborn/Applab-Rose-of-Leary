@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -15,20 +16,31 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Objects;
 
 
 public class ClassifierActivity extends AppCompatActivity {
     Button  button = null;
-    TextView textView2 = null;
     EditText editText = null;
+    ImageView LO = null;
+    ImageView RB = null;
+    ImageView LB = null;
+    ImageView RO = null;
+    ImageView rose = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classifier);
         button = (Button)findViewById(R.id.button3);
-        textView2 = (TextView) findViewById(R.id.textView2);
         editText = (EditText) findViewById(R.id.editText4);
+        rose = (ImageView) findViewById(R.id.imageView2);
+        LB = (ImageView) findViewById(R.id.imageView3);
+        RO = (ImageView) findViewById(R.id.imageView4);
+        RB = (ImageView) findViewById(R.id.imageView5);
+        LO = (ImageView) findViewById(R.id.imageView6);
+
         final String name = editText.getText().toString();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +52,7 @@ public class ClassifierActivity extends AppCompatActivity {
         });
     }
 
+
     class SendMessage extends AsyncTask<String, Void, String> {
         private Exception exception;
         private String result;
@@ -50,7 +63,7 @@ public class ClassifierActivity extends AppCompatActivity {
             try {
                 try {
                     System.out.println("Connecting");
-                    Socket socket = new Socket("192.168.0.104",8888);
+                    Socket socket = new Socket("192.168.0.101",8888);
                     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                     System.out.println("start loop");
@@ -84,7 +97,35 @@ public class ClassifierActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String line) {
-            textView2.setText(line);
+            if(line.equals("[\'RB\']")){
+                RB.setVisibility(View.VISIBLE);
+                RO.setVisibility(View.INVISIBLE);
+                LB.setVisibility(View.INVISIBLE);
+                rose.setVisibility(View.INVISIBLE);
+                LO.setVisibility(View.INVISIBLE);
+            }
+            else if(line.equals("[\'LO\']")){
+                RB.setVisibility(View.INVISIBLE);
+                RO.setVisibility(View.INVISIBLE);
+                LB.setVisibility(View.INVISIBLE);
+                rose.setVisibility(View.INVISIBLE);
+                LO.setVisibility(View.VISIBLE);
+            }
+            else if(line.equals("[\'RO\']")){
+                RB.setVisibility(View.INVISIBLE);
+                RO.setVisibility(View.VISIBLE);
+                LB.setVisibility(View.INVISIBLE);
+                rose.setVisibility(View.INVISIBLE);
+                LO.setVisibility(View.INVISIBLE);
+            }
+            else if(line.equals("[\'LB\']")){
+                RB.setVisibility(View.INVISIBLE);
+                RO.setVisibility(View.INVISIBLE);
+                LB.setVisibility(View.VISIBLE);
+                rose.setVisibility(View.INVISIBLE);
+                LO.setVisibility(View.INVISIBLE);
+            }
+
         }
     }
 }
