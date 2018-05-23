@@ -95,7 +95,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (questionNumber < 10) {
+                if (questionNumber < 9) {
                     updateQuestions();
                     updateAnswer2();
                     button.setVisibility(View.INVISIBLE);
@@ -196,16 +196,16 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
     private String setTextColor(String color){
         String positionOnRose;
         if(color.equals("Yellow")){
-            positionOnRose = "Together and submissive";
+            positionOnRose = "Together and below";
         }
         else if(color.equals("Red")){
-            positionOnRose = "Together and dominant";
+            positionOnRose = "Together and above";
         }
         else if(color.equals("Blue")){
-            positionOnRose = "Againt and dominant";
+            positionOnRose = "Againt and above";
         }
         else{
-            positionOnRose = "Against and submissive";
+            positionOnRose = "Against and below";
         }
         return positionOnRose;
     }
@@ -213,16 +213,16 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
     private String setTextPos(String position){
         String posText;
         if(position.equals("RO")){
-            posText = "together and submissive";
+            posText = "together and below";
         }
         else if(position.equals("RB")){
-            posText = "together and dominant";
+            posText = "together and above";
         }
         else if(position.equals("LB")){
-            posText = "againt and dominant";
+            posText = "againt and above";
         }
         else{
-            posText = "against and submissive";
+            posText = "against and below";
         }
 
         return posText;
