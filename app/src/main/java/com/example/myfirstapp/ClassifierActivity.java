@@ -63,7 +63,7 @@ public class ClassifierActivity extends AppCompatActivity {
             try {
                 try {
                     System.out.println("Connecting");
-                    Socket socket = new Socket("192.168.0.101",8888);
+                    Socket socket = new Socket("213.124.174.119",8888);
                     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                     System.out.println("start loop");
