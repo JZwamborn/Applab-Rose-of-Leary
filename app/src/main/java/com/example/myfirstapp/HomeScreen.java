@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,19 +29,19 @@ import java.util.ArrayList;
 
 public class HomeScreen extends AppCompatActivity {
 
-    Button button_info = null;
-    Button button_personal = null;
-    Button button_progress = null;
-    Button button_training = null;
+    ImageButton button_info = null;
+    ImageButton button_personal = null;
+    ImageButton button_progress = null;
+    ImageButton button_training = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-        button_info = (Button)findViewById(R.id.Button_Dashboard_info);
-        button_personal = (Button)findViewById(R.id.Button_Dashboard_personal);
-        button_progress = (Button)findViewById(R.id.Button_Dashboard_progress);
-        button_training = (Button)findViewById(R.id.Button_Dashboard_training);
+        button_info = (ImageButton)findViewById(R.id.Button_Dashboard_info);
+        button_personal = (ImageButton)findViewById(R.id.Button_Dashboard_personal);
+        button_progress = (ImageButton)findViewById(R.id.Button_Dashboard_progress);
+        button_training = (ImageButton)findViewById(R.id.Button_Dashboard_training);
         //Create listeners also on_creatre
         button_info.setOnClickListener(new View.OnClickListener() {
             @Override
