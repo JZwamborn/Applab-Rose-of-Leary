@@ -54,19 +54,14 @@ public class HomeScreenProgress extends AppCompatActivity {
         button_training = (ImageButton)findViewById(R.id.Button_Dashboard_training);
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", 0);
-        Gson gson = new Gson();
-        String jsonText = settings.getString("Scores", "null");
-        String[] scores = gson.fromJson(jsonText, String[].class);
-        final Number[] domainLabels = new Number[scores.length];
-        Number[] intscores = new Number[scores.length];
+        int score1 = settings.getInt("SCORE1", 0);
+        int score2 = settings.getInt("SCORE2", 0);
+        int score3 = settings.getInt("SCORE3", 0);
+        int score4 = settings.getInt("SCORE4", 0);
+        int score5 = settings.getInt("SCORE5", 0);
 
-        int i=0;
-        for (String str : scores){
-            Log.d("message, ", str);
-            intscores[i] = Integer.parseInt(str);
-            domainLabels[i] = i;
-            i++;
-        }
+        final Number[] domainLabels = {1, 2, 3, 4, 5};
+        Number[] intscores = {score1, score2, score3, score4, score5};
 
         XYSeries series1 = new SimpleXYSeries(
                 Arrays.asList(intscores), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Scores");

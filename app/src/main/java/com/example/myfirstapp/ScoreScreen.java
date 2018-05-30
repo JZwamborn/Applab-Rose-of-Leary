@@ -67,7 +67,33 @@ public class ScoreScreen extends AppCompatActivity{
             highScore.setText("High Score: " + high_score);
         }
 
-        String scores = settings.getString("Scores", "null");
+        int score1 = settings.getInt("SCORE1", 0);
+        int score2 = settings.getInt("SCORE2", 0);
+        int score3 = settings.getInt("SCORE3", 0);
+        int score4 = settings.getInt("SCORE4", 0);
+        int score5 = settings.getInt("SCORE5", 0);
+
+        int scoretemp = score2;
+        score2 = score1;
+        int score2temp = score3;
+        score3 = scoretemp;
+        scoretemp = score4;
+        score4 = score2temp;
+        score5 = scoretemp;
+        score1 = Integer.parseInt(score);
+
+        editor.putInt("SCORE1", score1);
+        editor.commit();
+        editor.putInt("SCORE2", score2);
+        editor.commit();
+        editor.putInt("SCORE3", score3);
+        editor.commit();
+        editor.putInt("SCORE4", score4);
+        editor.commit();
+        editor.putInt("SCORE5", score5);
+        editor.commit();
+
+        /**String scores = settings.getString("Scores", "null");
         Gson gson = new Gson();
         List<String> textList = new ArrayList<String>();
         textList.add("0");
@@ -86,7 +112,7 @@ public class ScoreScreen extends AppCompatActivity{
         String jsonText3 = gson.toJson(textList2);
         editor.putString("Scores", jsonText3);
         editor.apply();
-
+        **/
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
