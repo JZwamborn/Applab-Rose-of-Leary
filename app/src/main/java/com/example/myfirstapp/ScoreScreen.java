@@ -73,14 +73,11 @@ public class ScoreScreen extends AppCompatActivity{
         int score4 = settings.getInt("SCORE4", 0);
         int score5 = settings.getInt("SCORE5", 0);
 
-        int scoretemp = score2;
-        score2 = score1;
-        int score2temp = score3;
-        score3 = scoretemp;
-        scoretemp = score4;
-        score4 = score2temp;
-        score5 = scoretemp;
-        score1 = Integer.parseInt(score);
+        score1 = score2;
+        score2 = score3;
+        score3 = score4;
+        score4 = score5;
+        score5 = Integer.parseInt(score);
 
         editor.putInt("SCORE1", score1);
         editor.commit();

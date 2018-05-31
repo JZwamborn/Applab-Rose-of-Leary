@@ -11,12 +11,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.androidplot.xy.BoundaryMode;
 import com.androidplot.xy.CatmullRomInterpolator;
 import com.androidplot.xy.LineAndPointFormatter;
 import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYGraphWidget;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYSeries;
+import com.androidplot.xy.StepMode;
+import java.text.DecimalFormat;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -62,6 +65,29 @@ public class HomeScreenProgress extends AppCompatActivity {
 
         final Number[] domainLabels = {1, 2, 3, 4, 5};
         Number[] intscores = {score1, score2, score3, score4, score5};
+
+        //Adding a White Background setting Borders etc..
+        plot.setBorderStyle(XYPlot.BorderStyle.NONE, null, null);
+        plot.setPlotMargins(0, 0, 0, 0);
+        plot.setPlotPadding(0, 0, 0, 0);
+        plot.setBackgroundColor(Color.WHITE);
+
+        //Domain
+        plot.setDomainStep(StepMode.INCREMENT_BY_VAL, 1);
+        // get rid of the decimal place on the display:
+        plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.LEFT).setFormat(new DecimalFormat("#"));
+
+
+        // Reduce the number of Domain labels
+        //multitouchPlot.setTicksPerDomainLabel(3);
+
+        //Range
+        plot.setRangeStep(StepMode.INCREMENT_BY_VAL, 1);
+        // get rid of the decimal place on the display:
+        plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.LEFT).setFormat(new DecimalFormat("#"));
+
+        plot.setRangeBoundaries(0, 10, BoundaryMode.GROW);
+        plot.setDomainBoundaries(0, 5, BoundaryMode.GROW);
 
         XYSeries series1 = new SimpleXYSeries(
                 Arrays.asList(intscores), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Scores");
