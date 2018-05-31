@@ -66,7 +66,7 @@ public class HomeScreenProgress extends AppCompatActivity {
         XYSeries series1 = new SimpleXYSeries(
                 Arrays.asList(intscores), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Scores");
 
-        LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.BLUE, null);
+        LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.parseColor("#6ACCCB"), null, Color.parseColor("#808080"), null);
 
         series1Format.setInterpolationParams(
                 new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
