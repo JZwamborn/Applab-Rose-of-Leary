@@ -202,10 +202,10 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
             positionOnRose = "Together and above";
         }
         else if(color.equals("Blue")){
-            positionOnRose = "Againt and above";
+            positionOnRose = "Opposed and above";
         }
         else{
-            positionOnRose = "Against and below";
+            positionOnRose = "Opposed and below";
         }
         return positionOnRose;
     }
@@ -219,10 +219,10 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
             posText = "together and above";
         }
         else if(position.equals("LB")){
-            posText = "againt and above";
+            posText = "opposed and above";
         }
         else{
-            posText = "against and below";
+            posText = "opposed and below";
         }
 
         return posText;
