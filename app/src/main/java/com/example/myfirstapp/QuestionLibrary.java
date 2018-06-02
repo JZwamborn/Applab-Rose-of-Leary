@@ -50,7 +50,7 @@ public class QuestionLibrary {
     }
 
     public void readLines() {
-        InputStream inputStream = ctx.getResources().openRawResource(R.raw.finaldataa);
+        InputStream inputStream = ctx.getResources().openRawResource(R.raw.dataless);
         CSVReader csvFile = new CSVReader(inputStream);
         scoreList = csvFile.read();
 
