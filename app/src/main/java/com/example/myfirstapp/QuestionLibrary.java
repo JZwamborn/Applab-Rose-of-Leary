@@ -53,8 +53,6 @@ public class QuestionLibrary {
         InputStream inputStream = ctx.getResources().openRawResource(R.raw.dataless);
         CSVReader csvFile = new CSVReader(inputStream);
         scoreList = csvFile.read();
-
-
     }
 
     public int getQuestionLength(){

@@ -17,10 +17,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_marginTop="49dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:text="[Situation to respond to]"
             android:textColor="#808080"
-            android:textSize="24sp" />
+            android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -44,7 +47,7 @@
             android:layout_marginTop="20dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
-            app:srcCompat="@drawable/lb_blue" />
+            app:srcCompat="@drawable/lb_you" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -56,7 +59,7 @@
             android:layout_marginTop="20dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
-            app:srcCompat="@drawable/ro_blue" />
+            app:srcCompat="@drawable/ro_you" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -68,7 +71,7 @@
             android:layout_marginTop="20dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
-            app:srcCompat="@drawable/rb_blue" />
+            app:srcCompat="@drawable/rb_you" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -80,7 +83,7 @@
             android:layout_marginTop="20dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
-            app:srcCompat="@drawable/lo_blue" />
+            app:srcCompat="@drawable/lo_you" />
 
         <EditText
             android:id="@+id/editText4"

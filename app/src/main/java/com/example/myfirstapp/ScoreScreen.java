@@ -90,26 +90,6 @@ public class ScoreScreen extends AppCompatActivity{
         editor.putInt("SCORE5", score5);
         editor.commit();
 
-        /**String scores = settings.getString("Scores", "null");
-        Gson gson = new Gson();
-        List<String> textList = new ArrayList<String>();
-        textList.add("0");
-        textList.add("0");
-        textList.add("0");
-        String jsonText = gson.toJson(textList);
-        editor.putString("Scores", jsonText);
-        editor.apply();
-
-        String jsonText2 = settings.getString("Scores", null);
-        List<String> textList2 = Arrays.asList(gson.fromJson(jsonText2, String[].class));
-
-        textList2 = new ArrayList<String>(textList2);
-        textList2.add(score);
-
-        String jsonText3 = gson.toJson(textList2);
-        editor.putString("Scores", jsonText3);
-        editor.apply();
-        **/
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

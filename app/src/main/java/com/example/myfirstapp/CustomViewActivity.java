@@ -95,7 +95,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (questionNumber < 9) {
+                if (questionNumber < 10) {
                     updateQuestions();
                     updateAnswer2();
                     button.setVisibility(View.INVISIBLE);
