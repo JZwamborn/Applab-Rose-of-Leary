@@ -27,6 +27,7 @@ import java.util.Random;
 
 public class ClassifierActivity extends AppCompatActivity {
     Button  button = null;
+    Button next = null;
     EditText editText = null;
     ImageView LO = null;
     ImageView RB = null;
@@ -34,10 +35,13 @@ public class ClassifierActivity extends AppCompatActivity {
     ImageView RO = null;
     ImageView rose = null;
     TextView tx = null;
+    TextView feedback = null;
     private String goal;
     private int questionNumber = 0;
     ConversationLibrary conversationLibrary;
     ArrayList<Integer> numbers = new ArrayList<Integer>();
+    private boolean partner = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,8 @@ public class ClassifierActivity extends AppCompatActivity {
         RB = (ImageView) findViewById(R.id.imageView5);
         LO = (ImageView) findViewById(R.id.imageView6);
         tx = (TextView) findViewById(R.id.textView4);
+        next = (Button) findViewById(R.id.button4);
+        feedback = (TextView) findViewById(R.id.feedback);
         conversationLibrary = new ConversationLibrary(this);
         conversationLibrary.readLines();
         conversationLibrary.readSentences();
@@ -69,6 +75,14 @@ public class ClassifierActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 editText.setText("");
+            }
+        });
+
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                editText.getText().clear();
+                updateSentences();
             }
         });
 
@@ -91,18 +105,29 @@ public class ClassifierActivity extends AppCompatActivity {
             return "above and together";
         }
         else if(label.equals("LO")){
-            return "below and against";
+            return "below and opposite";
         }
         else if(label.equals("LB")){
-            return "above and against";
+            return "above and opposite";
         }
         return "";
     }
 
     private void updateSentences() {
+        next.setVisibility(View.INVISIBLE);
+        button.setVisibility(View.VISIBLE);
         editText.setText("Type your response to the situation");
-        goal = labelToText(conversationLibrary.getPartnerGoal(numbers.get(questionNumber)));
-        tx.setText(Html.fromHtml("<b> The situation: </b>" + conversationLibrary.getSentences(numbers.get(questionNumber)) + "<br>Your goal is to get your conversation partner in the: " + "<b> <br>" + labelToText(conversationLibrary.getPartnerGoal(numbers.get(questionNumber))) + "</b> part of the rose </br></br>"));
+        goal = conversationLibrary.getPartnerGoal(numbers.get(questionNumber));
+        Log.i("LOG_TAG ", goal);
+        if(goal.equals("NONE")){
+            goal = conversationLibrary.getYourGoal(numbers.get(questionNumber));
+            partner = false;
+            tx.setText(Html.fromHtml("<b> The situation: <br></b>" + conversationLibrary.getSentences(numbers.get(questionNumber)) + "<br>Your goal is to get in the: " + "<b> <br>" + labelToText(conversationLibrary.getYourGoal(numbers.get(questionNumber))) + "</b> part of the rose </br></br></br>"));
+        }
+        else{
+            partner = true;
+            tx.setText(Html.fromHtml("<b> The situation: <br></b>" + conversationLibrary.getSentences(numbers.get(questionNumber)) + "<br>Your goal is to get your conversation partner in the: " + "<b> <br>" + labelToText(conversationLibrary.getPartnerGoal(numbers.get(questionNumber))) + "</b> part of the rose </br></br></br>"));
+        }
         questionNumber++;
         Log.i("LOG_TAG", "correct pos: " + conversationLibrary.getYourGoal(numbers.get(questionNumber)));
     }
@@ -110,7 +135,9 @@ public class ClassifierActivity extends AppCompatActivity {
     private void updateAnswer(String reaction){
         if(reaction.equals(goal)) {
             if (questionNumber < 5) {
-                updateSentences();
+                feedback.setText("Great job!");
+                next.setVisibility(View.VISIBLE);
+                button.setVisibility(View.INVISIBLE);
             } else if (questionNumber == 5) {
                 Intent i = new Intent(ClassifierActivity.this, ScoreScreen.class);
                 startActivity(i);
@@ -166,7 +193,14 @@ public class ClassifierActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String line) {
             if(line.equals("[\'RB\']")){
-                updateAnswer("RB");
+                if(partner){
+                    feedback.setText("Your partner (orange) is now together and below, you (blue) are now together and above");
+                    updateAnswer("RO");
+                }
+                else{
+                    feedback.setText("You (blue) are now together and above, your partner (orange) is now together and below");
+                    updateAnswer("RB");
+                }
                 RB.setVisibility(View.VISIBLE);
                 RO.setVisibility(View.INVISIBLE);
                 LB.setVisibility(View.INVISIBLE);
@@ -174,7 +208,14 @@ public class ClassifierActivity extends AppCompatActivity {
                 LO.setVisibility(View.INVISIBLE);
             }
             else if(line.equals("[\'LO\']")){
-                updateAnswer("LO");
+                if(partner){
+                    feedback.setText("Your partner (orange) is now opposite and above, you (blue) are now opposite and below");
+                    updateAnswer("LB");
+                }
+                else{
+                    feedback.setText("You (blue) are now together and above, your partner (orange) is now opposite and below");
+                    updateAnswer("LO");
+                }
                 RB.setVisibility(View.INVISIBLE);
                 RO.setVisibility(View.INVISIBLE);
                 LB.setVisibility(View.INVISIBLE);
@@ -182,7 +223,14 @@ public class ClassifierActivity extends AppCompatActivity {
                 LO.setVisibility(View.VISIBLE);
             }
             else if(line.equals("[\'RO\']")){
-                updateAnswer("RO");
+                if(partner){
+                    feedback.setText("Your partner (orange) is now together and above, you (blue) are now together and below");
+                    updateAnswer("RB");
+                }
+                else{
+                    feedback.setText("You (blue) are now together and below, your partner (orange) is now together and above");
+                    updateAnswer("RO");
+                }
                 RB.setVisibility(View.INVISIBLE);
                 RO.setVisibility(View.VISIBLE);
                 LB.setVisibility(View.INVISIBLE);
@@ -190,7 +238,14 @@ public class ClassifierActivity extends AppCompatActivity {
                 LO.setVisibility(View.INVISIBLE);
             }
             else if (line.equals("[\'LB\']")){
-                updateAnswer("LB");
+                if(partner){
+                    feedback.setText("Your partner (orange) is now opposite and below, you (blue) are now opposite and above");
+                    updateAnswer("LO");
+                }
+                else{
+                    feedback.setText("You (blue) are now opposite and above, your partner (orange) is now together and below");
+                    updateAnswer("LB");
+                }
                 RB.setVisibility(View.INVISIBLE);
                 RO.setVisibility(View.INVISIBLE);
                 LB.setVisibility(View.VISIBLE);
