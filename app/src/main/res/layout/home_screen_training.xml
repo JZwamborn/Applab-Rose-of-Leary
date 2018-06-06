@@ -28,7 +28,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:text="Training"
+                android:text="Pick your training"
                 android:textColor="#808080"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
