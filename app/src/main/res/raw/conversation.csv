@@ -13,12 +13,12 @@ You want to tell your enemy how you feel about him|LO|LB
 You don't want to talk to your mother |NONE|LO
 Your project partner says: I don't feel like doing this task|RO|RB
 Your project partner says: I don't feel like doing this task|LO|LB
-You need help from a stranger on the street.|RB|RO
-Your colleague asks: Why haven't you done your work yet?|LB|LO
-Your colleague asks: Why haven't you done your work yet?|RB|RO
+You need help from a stranger on the street|RB|RO
+Your colleague asks: Why haven't you done your work yet|LB|LO
+Your colleague asks: Why haven't you done your work yet|RB|RO
 You need your parents to give you some money|RB|RO
 You want to stop fighting with your sister|RB|RO
-You don't want your boss to interrupt you anymore.|RO|RB
+You don't want your boss to interrupt you anymore|RO|RB
 You need to ask your teaching assistant how to solve an exercise|RB|RO
 You don't agree with your colleague's critique on you|NONE|LO
 You want to prove to your parents your responsible|NONE|LB

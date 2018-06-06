@@ -11,15 +11,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-    <ScrollView
-        android:id="@+id/scroll_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="8dp"
-        android:background="#ffffff"
-        android:padding="16dp"
-        android:scrollbars="none" >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -121,14 +112,16 @@
             android:layout_below="@id/feedback"
             android:backgroundTint="#6ACCCB"
             android:ems="10"
+            android:textSize="18sp"
+            android:imeOptions="actionDone"
             android:layout_marginTop="10dp"
             android:inputType="textPersonName"
             android:textColor="#808080" />
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="250dp"
-            android:layout_height="46dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/editText4"
             android:background="#6ACCCB"
@@ -138,15 +131,29 @@
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="250dp"
-                android:layout_height="46dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/editText4"
                 android:background="#6ACCCB"
                 android:layout_marginTop="10dp"
                 android:text="Next"
+                android:clickable="true"
                 android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/button5"
+                android:visibility="invisible"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/editText4"
+                android:background="#6ACCCB"
+                android:layout_marginTop="10dp"
+                android:text="Finish"
+                android:clickable="true"
+                android:textColor="@android:color/white" />
+
         </RelativeLayout>
-        </ScrollView>
     </LinearLayout>
 

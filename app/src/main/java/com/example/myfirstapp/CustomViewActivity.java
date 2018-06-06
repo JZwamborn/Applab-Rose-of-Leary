@@ -293,7 +293,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
 
     private void updateAnswer1(boolean correct, String pressed, String correct_position) {
         if (correct){
-            answer.setText(Html.fromHtml(pressed  + " is "+ "<font color=\"#00cc00\">" + "correct!" + "</font><br>"
+            answer.setText(Html.fromHtml(pressed  + " is " + "<font color=\"#00cc00\">" + "correct!" + "</font><br>"
                     + "Your score is: " + score));
         }
         else{

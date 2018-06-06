@@ -1,5 +1,7 @@
 package com.example.myfirstapp;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,6 +30,7 @@ import java.util.Random;
 
 public class ClassifierActivity extends AppCompatActivity {
     Button  button = null;
+    Button finish = null;
     Button next = null;
     EditText editText = null;
     ImageView LO = null;
@@ -55,6 +59,7 @@ public class ClassifierActivity extends AppCompatActivity {
         RB = (ImageView) findViewById(R.id.imageView5);
         LO = (ImageView) findViewById(R.id.imageView6);
         tx = (TextView) findViewById(R.id.textView4);
+        finish = (Button) findViewById(R.id.button5);
         next = (Button) findViewById(R.id.button4);
         feedback = (TextView) findViewById(R.id.feedback);
         conversationLibrary = new ConversationLibrary(this);
@@ -63,7 +68,7 @@ public class ClassifierActivity extends AppCompatActivity {
         conversationLibrary.readGoal();
 
         Random randomGenerator = new Random();
-        while(numbers.size() < 5){
+        while(numbers.size() < 6){
             int random = randomGenerator.nextInt(conversationLibrary.getSentencesLength());
             if(!numbers.contains(random)){
                 numbers.add(random);
@@ -78,19 +83,30 @@ public class ClassifierActivity extends AppCompatActivity {
             }
         });
 
-        feedback.setOnClickListener(new View.OnClickListener() {
+
+
+
+        finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                editText.getText().clear();
-                updateSentences();
+                Intent i = new Intent(ClassifierActivity.this, HomeScreen.class);
+                startActivity(i);
+
             }
         });
 
-        final String name = editText.getText().toString();
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                editText.setText("");
+                updateSentences();
+
+            }
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 new SendMessage().execute(editText.getText().toString());
                 editText.getText().clear();
             }
@@ -113,6 +129,7 @@ public class ClassifierActivity extends AppCompatActivity {
         return "";
     }
 
+
     private void updateSentences() {
         next.setVisibility(View.INVISIBLE);
         button.setVisibility(View.VISIBLE);
@@ -122,11 +139,11 @@ public class ClassifierActivity extends AppCompatActivity {
         if(goal.equals("NONE")){
             goal = conversationLibrary.getYourGoal(numbers.get(questionNumber));
             partner = false;
-            tx.setText(Html.fromHtml("<b> The situation: <br></b>" + conversationLibrary.getSentences(numbers.get(questionNumber)) + "<br>Your goal is to get in the: " + "<b> <br>" + labelToText(conversationLibrary.getYourGoal(numbers.get(questionNumber))) + "</b> part of the rose </br></br></br>"));
+            tx.setText(Html.fromHtml("<b> The situation: </b>" + conversationLibrary.getSentences(numbers.get(questionNumber)) + ". Your goal is to get (yourself) in the: " + "<b>" + labelToText(conversationLibrary.getYourGoal(numbers.get(questionNumber))) + "</b> part of the rose"));
         }
         else{
             partner = true;
-            tx.setText(Html.fromHtml("<b> The situation: <br></b>" + conversationLibrary.getSentences(numbers.get(questionNumber)) + "<br>Your goal is to get your conversation partner in the: " + "<b> <br>" + labelToText(conversationLibrary.getPartnerGoal(numbers.get(questionNumber))) + "</b> part of the rose </br></br></br>"));
+            tx.setText(Html.fromHtml("<b> The situation: </b>" + conversationLibrary.getSentences(numbers.get(questionNumber)) + ". Your goal is to get your conversation partner in the: " + "<b>" + labelToText(conversationLibrary.getPartnerGoal(numbers.get(questionNumber))) + "</b> part of the rose"));
         }
         questionNumber++;
         Log.i("LOG_TAG", "correct pos: " + conversationLibrary.getYourGoal(numbers.get(questionNumber)));
@@ -138,12 +155,17 @@ public class ClassifierActivity extends AppCompatActivity {
                 feedback.setText("Great job!");
                 next.setVisibility(View.VISIBLE);
                 button.setVisibility(View.INVISIBLE);
-            } else if (questionNumber == 5) {
-                Intent i = new Intent(ClassifierActivity.this, ScoreScreen.class);
-                startActivity(i);
+            } else if (questionNumber == 6) {
+                finish.setVisibility(View.VISIBLE);
+                next.setVisibility(View.INVISIBLE);
+                button.setVisibility(View.INVISIBLE);
+                feedback.setText("Congratulations! You finsished the excersise");
             } else {
-                Intent i = new Intent(ClassifierActivity.this, ScoreScreen.class);
-                startActivity(i);
+                finish.setVisibility(View.VISIBLE);
+                next.setVisibility(View.INVISIBLE);
+                button.setVisibility(View.INVISIBLE);
+                feedback.setText("Congratulations! You finsished the excersise");
+
             }
         }
     }
@@ -194,11 +216,11 @@ public class ClassifierActivity extends AppCompatActivity {
         protected void onPostExecute(String line) {
             if(line.equals("[\'RB\']")){
                 if(partner){
-                    feedback.setText("Your partner (orange) is now together and below, you (blue) are now together and above");
+                    feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now together and below, you (<font color=\"#00a2e8\">blue</font>) are now together and above"));
                     updateAnswer("RO");
                 }
                 else{
-                    feedback.setText("You (blue) are now together and above, your partner (orange) is now together and below");
+                    feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now together and above, your partner (<font color=\"#ff7f27\">orange</font>) is now together and below"));
                     updateAnswer("RB");
                 }
                 RB.setVisibility(View.VISIBLE);
@@ -209,11 +231,11 @@ public class ClassifierActivity extends AppCompatActivity {
             }
             else if(line.equals("[\'LO\']")){
                 if(partner){
-                    feedback.setText("Your partner (orange) is now opposite and above, you (blue) are now opposite and below");
+                    feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now opposite and above, you (<font color=\"#00a2e8\">blue</font>) are now opposite and below"));
                     updateAnswer("LB");
                 }
                 else{
-                    feedback.setText("You (blue) are now together and above, your partner (orange) is now opposite and below");
+                    feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now together and above, your partner (<font color=\"#ff7f27\">orange</font>) is now opposite and below"));
                     updateAnswer("LO");
                 }
                 RB.setVisibility(View.INVISIBLE);
@@ -224,11 +246,11 @@ public class ClassifierActivity extends AppCompatActivity {
             }
             else if(line.equals("[\'RO\']")){
                 if(partner){
-                    feedback.setText("Your partner (orange) is now together and above, you (blue) are now together and below");
+                    feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now together and above, you (<font color=\"#00a2e8\">blue</font>) are now together and below"));
                     updateAnswer("RB");
                 }
                 else{
-                    feedback.setText("You (blue) are now together and below, your partner (orange) is now together and above");
+                    feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now together and below, your partner (<font color=\"#ff7f27\">orange</font>) is now together and above"));
                     updateAnswer("RO");
                 }
                 RB.setVisibility(View.INVISIBLE);
@@ -239,11 +261,11 @@ public class ClassifierActivity extends AppCompatActivity {
             }
             else if (line.equals("[\'LB\']")){
                 if(partner){
-                    feedback.setText("Your partner (orange) is now opposite and below, you (blue) are now opposite and above");
+                    feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now opposite and below, you (<font color=\"#00a2e8\">blue</font>) are now opposite and above"));
                     updateAnswer("LO");
                 }
                 else{
-                    feedback.setText("You (blue) are now opposite and above, your partner (orange) is now together and below");
+                    feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now opposite and above, your partner (<font color=\"#ff7f27\">orange</font>) is now together and below"));
                     updateAnswer("LB");
                 }
                 RB.setVisibility(View.INVISIBLE);
