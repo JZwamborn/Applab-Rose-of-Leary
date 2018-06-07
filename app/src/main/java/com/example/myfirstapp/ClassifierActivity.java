@@ -91,7 +91,6 @@ public class ClassifierActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent i = new Intent(ClassifierActivity.this, HomeScreen.class);
                 startActivity(i);
-
             }
         });
 
@@ -155,7 +154,7 @@ public class ClassifierActivity extends AppCompatActivity {
                 feedback.setText("Great job!");
                 next.setVisibility(View.VISIBLE);
                 button.setVisibility(View.INVISIBLE);
-            } else if (questionNumber == 6) {
+            } else if (questionNumber == 5) {
                 finish.setVisibility(View.VISIBLE);
                 next.setVisibility(View.INVISIBLE);
                 button.setVisibility(View.INVISIBLE);

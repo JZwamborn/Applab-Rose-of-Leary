@@ -95,7 +95,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (questionNumber < 10) {
+                if (questionNumber < 9) {
                     updateQuestions();
                     updateAnswer2();
                     button.setVisibility(View.INVISIBLE);
@@ -110,7 +110,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
                     roGreen.setVisibility(View.INVISIBLE);
                     roRed.setVisibility(View.INVISIBLE);
                 }
-                else if (questionNumber == 10){
+                else if (questionNumber == 9){
                     Intent i = new Intent(CustomViewActivity.this, ScoreScreen.class);
                     Log.i("tag", String.valueOf(score));
                     i.putExtra("score", String.valueOf(score));
