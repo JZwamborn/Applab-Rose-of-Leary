@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -29,17 +30,18 @@ import java.util.Random;
 
 
 public class ClassifierActivity extends AppCompatActivity {
-    Button  button = null;
-    Button finish = null;
-    Button next = null;
-    EditText editText = null;
-    ImageView LO = null;
-    ImageView RB = null;
-    ImageView LB = null;
-    ImageView RO = null;
-    ImageView rose = null;
-    TextView tx = null;
-    TextView feedback = null;
+    Button  button;
+    Button finish;
+    Button next;
+    EditText editText;
+    ImageView LO;
+    ImageView RB;
+    ImageView LB;
+    ImageView RO;
+    ImageView rose;
+    TextView tx;
+    ProgressBar progressBar;
+    TextView feedback;
     private String goal;
     private int questionNumber = 0;
     ConversationLibrary conversationLibrary;
@@ -61,6 +63,8 @@ public class ClassifierActivity extends AppCompatActivity {
         tx = (TextView) findViewById(R.id.textView4);
         finish = (Button) findViewById(R.id.button5);
         next = (Button) findViewById(R.id.button4);
+        progressBar = (ProgressBar) findViewById(R.id.progress);
+        progressBar.setProgress(0);
         feedback = (TextView) findViewById(R.id.feedback);
         conversationLibrary = new ConversationLibrary(this);
         conversationLibrary.readLines();
@@ -152,6 +156,7 @@ public class ClassifierActivity extends AppCompatActivity {
         if(reaction.equals(goal)) {
             if (questionNumber < 5) {
                 feedback.setText("Great job!");
+                progressBar.setProgress(questionNumber);
                 next.setVisibility(View.VISIBLE);
                 button.setVisibility(View.INVISIBLE);
             } else if (questionNumber == 5) {

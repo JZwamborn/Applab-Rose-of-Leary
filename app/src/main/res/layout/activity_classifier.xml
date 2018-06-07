@@ -14,7 +14,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -27,6 +27,7 @@
             android:gravity="center"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="50dp"
             android:text="[Situation to respond to]"
             android:textColor="#808080"
             android:textSize="15sp" />
@@ -38,7 +39,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="visible"
             app:srcCompat="@drawable/roos" />
@@ -50,7 +51,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/lb_you" />
@@ -62,7 +63,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/ro_you" />
@@ -74,7 +75,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/rb_you" />
@@ -86,7 +87,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/lo_you" />
@@ -125,7 +126,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@id/editText4"
             android:background="#6ACCCB"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="Send"
             android:textColor="@android:color/white" />
 
@@ -136,7 +137,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/editText4"
                 android:background="#6ACCCB"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:text="Next"
                 android:clickable="true"
                 android:textColor="@android:color/white" />
@@ -149,10 +150,22 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/editText4"
                 android:background="#6ACCCB"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:text="Finish"
                 android:clickable="true"
                 android:textColor="@android:color/white" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="-4dp"
+                android:layout_below="@+id/button5"
+                android:progress="60"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:max="5"/>
 
         </RelativeLayout>
     </LinearLayout>

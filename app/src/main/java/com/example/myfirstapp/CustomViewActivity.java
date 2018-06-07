@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.myfirstapp.ColorTool;
@@ -40,6 +41,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
     ImageView loRed;
     ImageView roGreen;
     ImageView roRed;
+    ProgressBar progressBar;
 
     private QuestionLibrary questionLibrary = new QuestionLibrary(this);
     private int questionNumber = 0;
@@ -77,6 +79,9 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
         answer = (TextView) findViewById(R.id.textView5);
         click = (ImageView) findViewById(R.id.imageView7);
 
+        progressBar = (ProgressBar) findViewById(R.id.progress);
+        progressBar.setProgress(0);
+
         im.setClickable(true);
         im.setOnTouchListener(this);
 
@@ -98,6 +103,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
                 if (questionNumber < 9) {
                     updateQuestions();
                     updateAnswer2();
+                    progressBar.setProgress(questionNumber);
                     button.setVisibility(View.INVISIBLE);
                     im.setVisibility(View.VISIBLE);
                     im.setClickable(true);
@@ -308,6 +314,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
     }
 
     private void updateQuestions() {
+        progressBar.setProgress(questionNumber);
         tx.setText(questionLibrary.getQuestion(numbers.get(questionNumber)));
         questionNumber++;
         Log.i("LOG_TAG", "correct pos: " + questionLibrary.getPosition(numbers.get(questionNumber)));
