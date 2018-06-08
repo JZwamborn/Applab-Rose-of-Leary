@@ -42,8 +42,8 @@ public class HomeScreenTraining extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 classifier = true;
-                textView3.setTextColor(Color.parseColor("#808080"));
-                textView2.setTextColor(Color.parseColor("#6ACCCB"));
+                textView3.setTextColor(getResources().getColor(R.color.textColor));
+                textView2.setTextColor(getResources().getColor(R.color.colorPrimary));
                 train.setVisibility(View.VISIBLE);
             }
         });
@@ -52,8 +52,8 @@ public class HomeScreenTraining extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 classifier = false;
-                textView2.setTextColor(Color.parseColor("#808080"));
-                textView3.setTextColor(Color.parseColor("#6ACCCB"));
+                textView2.setTextColor(getResources().getColor(R.color.textColor));
+                textView3.setTextColor(getResources().getColor(R.color.colorPrimary));
                 train.setVisibility(View.VISIBLE);
             }
         });

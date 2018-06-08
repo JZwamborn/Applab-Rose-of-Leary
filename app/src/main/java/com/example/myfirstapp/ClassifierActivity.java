@@ -218,65 +218,70 @@ public class ClassifierActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String line) {
-            if(line.equals("[\'RB\']")){
-                if(partner){
-                    feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now together and below, you (<font color=\"#00a2e8\">blue</font>) are now together and above"));
-                    updateAnswer("RO");
+            if(line != null) {
+                if(line.equals("[\'RB\']")){
+                    if(partner){
+                        feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now together and below, you (<font color=\"#00a2e8\">blue</font>) are now together and above"));
+                        updateAnswer("RO");
+                    }
+                    else{
+                        feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now together and above, your partner (<font color=\"#ff7f27\">orange</font>) is now together and below"));
+                        updateAnswer("RB");
+                    }
+                    RB.setVisibility(View.VISIBLE);
+                    RO.setVisibility(View.INVISIBLE);
+                    LB.setVisibility(View.INVISIBLE);
+                    rose.setVisibility(View.INVISIBLE);
+                    LO.setVisibility(View.INVISIBLE);
                 }
-                else{
-                    feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now together and above, your partner (<font color=\"#ff7f27\">orange</font>) is now together and below"));
-                    updateAnswer("RB");
+                else if(line.equals("[\'LO\']")){
+                    if(partner){
+                        feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now opposite and above, you (<font color=\"#00a2e8\">blue</font>) are now opposite and below"));
+                        updateAnswer("LB");
+                    }
+                    else{
+                        feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now together and above, your partner (<font color=\"#ff7f27\">orange</font>) is now opposite and below"));
+                        updateAnswer("LO");
+                    }
+                    RB.setVisibility(View.INVISIBLE);
+                    RO.setVisibility(View.INVISIBLE);
+                    LB.setVisibility(View.INVISIBLE);
+                    rose.setVisibility(View.INVISIBLE);
+                    LO.setVisibility(View.VISIBLE);
                 }
-                RB.setVisibility(View.VISIBLE);
-                RO.setVisibility(View.INVISIBLE);
-                LB.setVisibility(View.INVISIBLE);
-                rose.setVisibility(View.INVISIBLE);
-                LO.setVisibility(View.INVISIBLE);
+                else if(line.equals("[\'RO\']")){
+                    if(partner){
+                        feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now together and above, you (<font color=\"#00a2e8\">blue</font>) are now together and below"));
+                        updateAnswer("RB");
+                    }
+                    else{
+                        feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now together and below, your partner (<font color=\"#ff7f27\">orange</font>) is now together and above"));
+                        updateAnswer("RO");
+                    }
+                    RB.setVisibility(View.INVISIBLE);
+                    RO.setVisibility(View.VISIBLE);
+                    LB.setVisibility(View.INVISIBLE);
+                    rose.setVisibility(View.INVISIBLE);
+                    LO.setVisibility(View.INVISIBLE);
+                }
+                else if (line.equals("[\'LB\']")){
+                    if(partner){
+                        feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now opposite and below, you (<font color=\"#00a2e8\">blue</font>) are now opposite and above"));
+                        updateAnswer("LO");
+                    }
+                    else{
+                        feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now opposite and above, your partner (<font color=\"#ff7f27\">orange</font>) is now together and below"));
+                        updateAnswer("LB");
+                    }
+                    RB.setVisibility(View.INVISIBLE);
+                    RO.setVisibility(View.INVISIBLE);
+                    LB.setVisibility(View.VISIBLE);
+                    rose.setVisibility(View.INVISIBLE);
+                    LO.setVisibility(View.INVISIBLE);
+                }
             }
-            else if(line.equals("[\'LO\']")){
-                if(partner){
-                    feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now opposite and above, you (<font color=\"#00a2e8\">blue</font>) are now opposite and below"));
-                    updateAnswer("LB");
-                }
-                else{
-                    feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now together and above, your partner (<font color=\"#ff7f27\">orange</font>) is now opposite and below"));
-                    updateAnswer("LO");
-                }
-                RB.setVisibility(View.INVISIBLE);
-                RO.setVisibility(View.INVISIBLE);
-                LB.setVisibility(View.INVISIBLE);
-                rose.setVisibility(View.INVISIBLE);
-                LO.setVisibility(View.VISIBLE);
-            }
-            else if(line.equals("[\'RO\']")){
-                if(partner){
-                    feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now together and above, you (<font color=\"#00a2e8\">blue</font>) are now together and below"));
-                    updateAnswer("RB");
-                }
-                else{
-                    feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now together and below, your partner (<font color=\"#ff7f27\">orange</font>) is now together and above"));
-                    updateAnswer("RO");
-                }
-                RB.setVisibility(View.INVISIBLE);
-                RO.setVisibility(View.VISIBLE);
-                LB.setVisibility(View.INVISIBLE);
-                rose.setVisibility(View.INVISIBLE);
-                LO.setVisibility(View.INVISIBLE);
-            }
-            else if (line.equals("[\'LB\']")){
-                if(partner){
-                    feedback.setText(Html.fromHtml("Your partner (<font color=\"#ff7f27\">orange</font>) is now opposite and below, you (<font color=\"#00a2e8\">blue</font>) are now opposite and above"));
-                    updateAnswer("LO");
-                }
-                else{
-                    feedback.setText(Html.fromHtml("You (<font color=\"#00a2e8\">blue</font>) are now opposite and above, your partner (<font color=\"#ff7f27\">orange</font>) is now together and below"));
-                    updateAnswer("LB");
-                }
-                RB.setVisibility(View.INVISIBLE);
-                RO.setVisibility(View.INVISIBLE);
-                LB.setVisibility(View.VISIBLE);
-                rose.setVisibility(View.INVISIBLE);
-                LO.setVisibility(View.INVISIBLE);
+            else{
+                editText.setText("No connection to server");
             }
         }
     }

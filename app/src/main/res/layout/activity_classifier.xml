@@ -4,10 +4,12 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:background="#fff"
+        android:background="@color/colorBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -25,11 +27,9 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="15dp"
             android:text="[Situation to respond to]"
-            android:textColor="#808080"
+            android:textColor="@color/textColor"
             android:textSize="15sp" />
 
         <ImageView
@@ -110,14 +110,14 @@
             android:layout_width="341dp"
             android:layout_height="41dp"
             android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/feedback"
-            android:backgroundTint="#6ACCCB"
             android:ems="10"
             android:textSize="18sp"
             android:imeOptions="actionDone"
-            android:layout_marginTop="10dp"
             android:inputType="textPersonName"
-            android:textColor="#808080" />
+            android:textColor="@color/textColor" />
 
         <Button
             android:id="@+id/button3"
@@ -125,10 +125,11 @@
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/editText4"
-            android:background="#6ACCCB"
-            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary"
+            android:onClick="login"
+            android:layout_marginTop="20dp"
             android:text="Send"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/textColor" />
 
             <Button
                 android:id="@+id/button4"
