@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.myfirstapp.ColorTool;
@@ -40,6 +41,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
     ImageView loRed;
     ImageView roGreen;
     ImageView roRed;
+    ProgressBar progressBar;
 
     private QuestionLibrary questionLibrary = new QuestionLibrary(this);
     private int questionNumber = 0;
@@ -77,6 +79,9 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
         answer = (TextView) findViewById(R.id.textView5);
         click = (ImageView) findViewById(R.id.imageView7);
 
+        progressBar = (ProgressBar) findViewById(R.id.progress);
+        progressBar.setProgress(0);
+
         im.setClickable(true);
         im.setOnTouchListener(this);
 
@@ -95,9 +100,10 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (questionNumber < 10) {
+                if (questionNumber < 9) {
                     updateQuestions();
                     updateAnswer2();
+                    progressBar.setProgress(questionNumber);
                     button.setVisibility(View.INVISIBLE);
                     im.setVisibility(View.VISIBLE);
                     im.setClickable(true);
@@ -110,7 +116,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
                     roGreen.setVisibility(View.INVISIBLE);
                     roRed.setVisibility(View.INVISIBLE);
                 }
-                else if (questionNumber == 10){
+                else if (questionNumber == 9){
                     Intent i = new Intent(CustomViewActivity.this, ScoreScreen.class);
                     Log.i("tag", String.valueOf(score));
                     i.putExtra("score", String.valueOf(score));
@@ -308,6 +314,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
     }
 
     private void updateQuestions() {
+        progressBar.setProgress(questionNumber);
         tx.setText(questionLibrary.getQuestion(numbers.get(questionNumber)));
         questionNumber++;
         Log.i("LOG_TAG", "correct pos: " + questionLibrary.getPosition(numbers.get(questionNumber)));

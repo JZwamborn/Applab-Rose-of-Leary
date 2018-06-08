@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <RelativeLayout
+    <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -12,6 +12,13 @@
         android:layout_marginLeft="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView4"
@@ -32,7 +39,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="visible"
             app:srcCompat="@drawable/roos" />
@@ -44,7 +51,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/lb_you" />
@@ -56,7 +63,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/ro_you" />
@@ -68,7 +75,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/rb_you" />
@@ -80,27 +87,42 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/lo_you" />
+
+        <TextView
+            android:id="@+id/feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView6"
+            android:layout_centerHorizontal="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#808080"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitCenter"/>
 
         <EditText
             android:id="@+id/editText4"
             android:layout_width="341dp"
             android:layout_height="41dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/imageView2"
             android:backgroundTint="@color/colorPrimary"
-            android:ems="10"
             android:layout_marginTop="20dp"
+            android:layout_below="@id/feedback"
+            android:ems="10"
+            android:textSize="18sp"
+            android:imeOptions="actionDone"
             android:inputType="textPersonName"
             android:textColor="@color/textColor" />
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="250dp"
-            android:layout_height="46dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/editText4"
             android:background="@color/colorPrimary"
@@ -109,5 +131,43 @@
             android:text="Send"
             android:textColor="@color/textColor" />
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/editText4"
+                android:background="#6ACCCB"
+                android:layout_marginTop="15dp"
+                android:text="Next"
+                android:clickable="true"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/button5"
+                android:visibility="invisible"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/editText4"
+                android:background="#6ACCCB"
+                android:layout_marginTop="15dp"
+                android:text="Finish"
+                android:clickable="true"
+                android:textColor="@android:color/white" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="-4dp"
+                android:layout_below="@+id/button5"
+                android:progress="60"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:max="5"/>
+
+        </RelativeLayout>
+    </LinearLayout>
 

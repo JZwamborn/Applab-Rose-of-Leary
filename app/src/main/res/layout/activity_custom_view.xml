@@ -13,7 +13,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
@@ -21,6 +20,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
             android:text="Click on the position in the rose to which the following sentence belowns:"
             android:gravity="center"
             android:textColor="@color/textColor"
@@ -193,6 +193,18 @@
             android:layout_marginTop="20dp"
             android:visibility="invisible"
             android:textColor="@color/textColor" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_below="@+id/button"
+            android:progress="60"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:max="10"/>
 
 
     </RelativeLayout>
