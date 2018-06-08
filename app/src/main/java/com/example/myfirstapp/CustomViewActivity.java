@@ -1,4 +1,6 @@
 package com.example.myfirstapp;
+import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.Context;
@@ -11,6 +13,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -93,7 +96,7 @@ public class CustomViewActivity extends AppCompatActivity implements View.OnTouc
                 numbers.add(random);
             }
         }
-
+        
         updateQuestions();
 
         // Create a ontouch listener object.
