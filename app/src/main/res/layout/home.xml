@@ -20,7 +20,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:text="Training"
-            android:textColor="#808080"
+            android:textColor="@color/textColor"
             android:textSize="40sp" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
             android:text="Classify sentences"
-            android:textColor="#808080"
+            android:textColor="@color/textColor"
             android:clickable="true"
             android:textSize="25sp" />
 
@@ -44,7 +44,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
             android:text="Doe iets anders"
-            android:textColor="#808080"
+            android:textColor="@color/textColor"
             android:textSize="25sp" />
 
 
@@ -56,7 +56,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginTop="50dp"
-            android:background="#6ACCCB"
+            android:background="@color/textColor"
             android:text="Train!"
             android:textColor="@android:color/white"
             android:visibility="visible" />

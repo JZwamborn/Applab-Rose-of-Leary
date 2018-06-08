@@ -6,7 +6,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:background="#fff"
+        android:background="@color/colorBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -23,7 +23,7 @@
             android:layout_alignParentTop="true"
             android:text="Click on the position in the rose to which the following sentence belowns:"
             android:gravity="center"
-            android:textColor="#808080"
+            android:textColor="@color/textColor"
             android:textSize="15sp" />
 
         <TextView
@@ -37,8 +37,8 @@
             android:gravity="center"
             android:layout_marginTop="30dp"
             android:text= "Ik heb gehoord dat de parking betalend wordt."
-            android:textColor="#808080"
-            android:textSize="15sp" />
+            android:textColor="@color/textColor"
+            android:textSize="20sp" />
 
 
         <ImageView
@@ -179,7 +179,7 @@
             android:text= "                                              "
             android:gravity="center"
             android:layout_marginTop="30dp"
-            android:textColor="#808080"
+            android:textColor="@color/textColor"
             android:textSize="15sp" />
 
         <Button
@@ -188,11 +188,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView5"
             android:layout_centerHorizontal="true"
-            android:background="#6ACCCB"
+            android:background="@color/colorPrimary"
             android:text="Next"
             android:layout_marginTop="20dp"
             android:visibility="invisible"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/textColor" />
 
 
     </RelativeLayout>

@@ -102,7 +102,7 @@ public class ClassifierActivity extends AppCompatActivity {
     private void updateSentences() {
         editText.setText("Type your response to the situation");
         goal = labelToText(conversationLibrary.getPartnerGoal(numbers.get(questionNumber)));
-        tx.setText(Html.fromHtml("<b> The situation: </b>" + conversationLibrary.getSentences(numbers.get(questionNumber)) + "<br>Your goal is to get your conversation partner in the: " + "<b> <br>" + labelToText(conversationLibrary.getPartnerGoal(numbers.get(questionNumber))) + "</b> part of the rose </br></br>"));
+        tx.setText(Html.fromHtml("The situation:<br><b>" + conversationLibrary.getSentences(numbers.get(questionNumber)) + "</b><br><br>Your goal is to get your conversation partner in the: " + "<b> <br>" + labelToText(conversationLibrary.getPartnerGoal(numbers.get(questionNumber))) + "</b> part of the rose </br></br>"));
         questionNumber++;
         Log.i("LOG_TAG", "correct pos: " + conversationLibrary.getYourGoal(numbers.get(questionNumber)));
     }
@@ -165,37 +165,39 @@ public class ClassifierActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String line) {
-            if(line.equals("[\'RB\']")){
-                updateAnswer("RB");
-                RB.setVisibility(View.VISIBLE);
-                RO.setVisibility(View.INVISIBLE);
-                LB.setVisibility(View.INVISIBLE);
-                rose.setVisibility(View.INVISIBLE);
-                LO.setVisibility(View.INVISIBLE);
+            if(line != null) {
+                if (line.equals("[\'RB\']")) {
+                    updateAnswer("RB");
+                    RB.setVisibility(View.VISIBLE);
+                    RO.setVisibility(View.INVISIBLE);
+                    LB.setVisibility(View.INVISIBLE);
+                    rose.setVisibility(View.INVISIBLE);
+                    LO.setVisibility(View.INVISIBLE);
+                } else if (line.equals("[\'LO\']")) {
+                    updateAnswer("LO");
+                    RB.setVisibility(View.INVISIBLE);
+                    RO.setVisibility(View.INVISIBLE);
+                    LB.setVisibility(View.INVISIBLE);
+                    rose.setVisibility(View.INVISIBLE);
+                    LO.setVisibility(View.VISIBLE);
+                } else if (line.equals("[\'RO\']")) {
+                    updateAnswer("RO");
+                    RB.setVisibility(View.INVISIBLE);
+                    RO.setVisibility(View.VISIBLE);
+                    LB.setVisibility(View.INVISIBLE);
+                    rose.setVisibility(View.INVISIBLE);
+                    LO.setVisibility(View.INVISIBLE);
+                } else if (line.equals("[\'LB\']")) {
+                    updateAnswer("LB");
+                    RB.setVisibility(View.INVISIBLE);
+                    RO.setVisibility(View.INVISIBLE);
+                    LB.setVisibility(View.VISIBLE);
+                    rose.setVisibility(View.INVISIBLE);
+                    LO.setVisibility(View.INVISIBLE);
+                }
             }
-            else if(line.equals("[\'LO\']")){
-                updateAnswer("LO");
-                RB.setVisibility(View.INVISIBLE);
-                RO.setVisibility(View.INVISIBLE);
-                LB.setVisibility(View.INVISIBLE);
-                rose.setVisibility(View.INVISIBLE);
-                LO.setVisibility(View.VISIBLE);
-            }
-            else if(line.equals("[\'RO\']")){
-                updateAnswer("RO");
-                RB.setVisibility(View.INVISIBLE);
-                RO.setVisibility(View.VISIBLE);
-                LB.setVisibility(View.INVISIBLE);
-                rose.setVisibility(View.INVISIBLE);
-                LO.setVisibility(View.INVISIBLE);
-            }
-            else if (line.equals("[\'LB\']")){
-                updateAnswer("LB");
-                RB.setVisibility(View.INVISIBLE);
-                RO.setVisibility(View.INVISIBLE);
-                LB.setVisibility(View.VISIBLE);
-                rose.setVisibility(View.INVISIBLE);
-                LO.setVisibility(View.INVISIBLE);
+            else{
+                editText.setText("No connection to server");
             }
         }
     }
