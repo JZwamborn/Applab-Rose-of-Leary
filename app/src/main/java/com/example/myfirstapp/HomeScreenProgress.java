@@ -107,7 +107,7 @@ public class HomeScreenProgress extends AppCompatActivity {
         plot.getDomainTitle().position(0, HorizontalPositioning.ABSOLUTE_FROM_CENTER, 0, VerticalPositioning.RELATIVE_TO_BOTTOM);
         //LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.parseColor("#6ACCCB"), null, Color.parseColor("#808080"), null);
 
-        LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.parseColor("#6ACCCB"), Color.parseColor("#6ACCCB"), null, null);
+        LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.parseColor("#668c74"), Color.parseColor("#668c74"), null, null);
         series1Format.getVertexPaint().setStrokeWidth(PixelUtils.dpToPix(11));
         //PointLabelFormatter  plf = new PointLabelFormatter();
         //plf.getTextPaint().setTextSize(40);
@@ -125,7 +125,7 @@ public class HomeScreenProgress extends AppCompatActivity {
         XYSeries series2b = new SimpleXYSeries(
                 Arrays.asList(intscores), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "");
 
-        LineAndPointFormatter series2bFormat = new LineAndPointFormatter(null, Color.parseColor("#808080"), null, null);
+        LineAndPointFormatter series2bFormat = new LineAndPointFormatter(null, Color.parseColor("#dcdcdc"), null, null);
         LineAndPointFormatter series3Format = new LineAndPointFormatter(null, null, null, null);
         // this adjusts the size of the inner circle:
         series2bFormat.getVertexPaint().setStrokeWidth(PixelUtils.dpToPix(7));

@@ -93,7 +93,7 @@ public class ScoreScreen extends AppCompatActivity{
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ScoreScreen.this, HomeScreen.class);
+                Intent i = new Intent(ScoreScreen.this, HomeScreenInfo.class);
                 startActivity(i);
             }
         });

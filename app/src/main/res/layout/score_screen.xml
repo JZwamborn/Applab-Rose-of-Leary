@@ -42,7 +42,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
             android:text="10"
-            android:textColor="#6ACCCB"
+            android:textColor="@color/textColor"
             android:textSize="30sp" />
 
         <TextView
@@ -63,9 +63,9 @@
             android:layout_below="@+id/textView1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:background="#6ACCCB"
+            android:background="@color/colorPrimary"
             android:text="Home"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/textColor" />
 
 
     </RelativeLayout>
