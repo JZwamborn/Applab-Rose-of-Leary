@@ -78,7 +78,7 @@ public class HomeScreenProgress extends AppCompatActivity {
         plot.setBorderStyle(XYPlot.BorderStyle.NONE, null, null);
         plot.setPlotMargins(0, 0, 0, 0);
         plot.setPlotPadding(0, 0, 0, 0);
-        plot.setBackgroundColor(Color.WHITE);
+        plot.setBackgroundColor(Color.parseColor("#16211b"));
 
         //Domain
         plot.setDomainStep(StepMode.INCREMENT_BY_VAL, 1);
