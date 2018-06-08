@@ -137,11 +137,11 @@
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/editText4"
-                android:background="#6ACCCB"
+                android:background="@color/colorPrimary"
                 android:layout_marginTop="10dp"
                 android:text="Next"
                 android:clickable="true"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/textColor" />
 
             <Button
                 android:id="@+id/button5"
@@ -150,11 +150,11 @@
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/editText4"
-                android:background="#6ACCCB"
+                android:background="@color/colorPrimary"
                 android:layout_marginTop="10dp"
                 android:text="Finish"
                 android:clickable="true"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/textColor" />
 
             <ProgressBar
                 android:id="@+id/progress"
