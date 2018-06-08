@@ -20,7 +20,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:text="Score"
-            android:textColor="#808080"
+            android:textColor="@color/textColor"
             android:textSize="40sp" />
 
         <TextView
@@ -29,9 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="40dp"
             android:text="Your final score is: "
-            android:textColor="#808080"
+            android:textColor="@color/textColor"
             android:textSize="24sp" />
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView6"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="40dp"
             android:text="10"
             android:textColor="@color/textColor"
             android:textSize="30sp" />
@@ -51,9 +51,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:text="10"
-            android:textColor="#808080"
+            android:textColor="@color/textColor"
             android:textSize="20sp" />
 
         <Button
@@ -62,7 +62,7 @@
             android:layout_height="38dp"
             android:layout_below="@+id/textView1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:background="@color/colorPrimary"
             android:text="Home"
             android:textColor="@color/textColor" />

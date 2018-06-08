@@ -20,7 +20,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:text="Click on the position in the rose to which the following sentence belowns:"
             android:gravity="center"
             android:textColor="@color/textColor"
@@ -35,7 +35,7 @@
             android:layout_below="@+id/textView3"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text= "Ik heb gehoord dat de parking betalend wordt."
             android:textColor="@color/textColor"
             android:textSize="20sp" />
@@ -48,7 +48,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/lb_green_whole" />
@@ -60,7 +60,7 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/lb_red_whole" />
@@ -73,7 +73,7 @@
             android:layout_centerHorizontal="true"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/lo_green" />
@@ -86,7 +86,7 @@
             android:layout_centerHorizontal="true"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/lo_red" />
@@ -99,7 +99,7 @@
             android:layout_centerHorizontal="true"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/ro_green" />
@@ -112,7 +112,7 @@
             android:layout_centerHorizontal="true"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/ro_red" />
@@ -125,7 +125,7 @@
             android:layout_centerHorizontal="true"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/rb_red" />
@@ -138,7 +138,7 @@
             android:layout_centerHorizontal="true"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="invisible"
             app:srcCompat="@drawable/rb_green" />
@@ -151,7 +151,7 @@
             android:layout_centerHorizontal="true"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitCenter"
             android:visibility="visible"
             app:srcCompat="@drawable/roos" />
@@ -164,7 +164,7 @@
             android:layout_centerInParent="true"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:visibility="invisible"
             app:srcCompat="@drawable/clickablerose" />
 
@@ -178,7 +178,7 @@
             android:layout_centerHorizontal="true"
             android:text = "                                            "
             android:gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:textColor="@color/textColor"
             android:textSize="15sp" />
 
@@ -190,7 +190,7 @@
             android:layout_centerHorizontal="true"
             android:background="@color/colorPrimary"
             android:text="Next"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:visibility="invisible"
             android:textColor="@color/textColor" />
 
