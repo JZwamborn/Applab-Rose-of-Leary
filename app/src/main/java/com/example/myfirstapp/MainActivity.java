@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView = null;
     TextView textView2 = null;
     EditText editText = null;
-    EditText editText2 = null;
+    //EditText editText2 = null; //old password
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         button = (Button)findViewById(R.id.button3);
         textView = (TextView) findViewById(R.id.textView4);
         textView2 = (TextView) findViewById(R.id.textView2);
-        editText2 = (EditText) findViewById(R.id.editText2);
+        //editText2 = (EditText) findViewById(R.id.editText2);
         editText = (EditText) findViewById(R.id.editText4);
-        final String name = editText.getText().toString();
+        final String userID = editText.getText().toString();
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", 0);
         SharedPreferences.Editor editor = settings.edit();
