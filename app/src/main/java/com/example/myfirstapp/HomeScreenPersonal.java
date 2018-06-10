@@ -1,11 +1,13 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 /**
  * Created by frank on 13-5-2018.
@@ -17,16 +19,21 @@ public class HomeScreenPersonal extends AppCompatActivity {
     ImageButton button_personal = null;
     ImageButton button_progress = null;
     ImageButton button_training = null;
+    TextView user_id_text = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen_personal);
+        SharedPreferences settings_user_ID = getSharedPreferences("settings_user_ID", 0);
         button_info = (ImageButton)findViewById(R.id.Button_Dashboard_info);
         button_personal = (ImageButton)findViewById(R.id.Button_Dashboard_personal);
         button_progress = (ImageButton)findViewById(R.id.Button_Dashboard_progress);
         button_training = (ImageButton)findViewById(R.id.Button_Dashboard_training);
-        //Create listeners also on_creatre
+        user_id_text = findViewById(R.id.textView13);
+        user_id_text.setText(settings_user_ID.getString("UserID","No ID"));
+        //Create listeners also on_create
         button_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
         textView2 = (TextView) findViewById(R.id.textView2);
         //editText2 = (EditText) findViewById(R.id.editText2);
         editText = (EditText) findViewById(R.id.editText4);
-        final String userID = editText.getText().toString();
 
+
+        SharedPreferences settings_user_ID = getSharedPreferences("settings_user_ID",0);
+        final SharedPreferences.Editor userID_editor = settings_user_ID.edit();
         SharedPreferences settings = getSharedPreferences("GAME_DATA", 0);
         SharedPreferences.Editor editor = settings.edit();
         Gson gson = new Gson();
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String userID = editText.getText().toString();
+                userID_editor.putString("UserID",userID);
+                userID_editor.apply();
                 startActivity(new Intent(MainActivity.this, HomeScreenInfo.class));
             }
         });
