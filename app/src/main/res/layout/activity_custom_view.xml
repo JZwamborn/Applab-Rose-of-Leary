@@ -41,12 +41,12 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_alignParentTop="true"
             android:layout_marginTop="25dp"
-            android:text="Click on the position in the rose to which the following sentence belowns:"
             android:gravity="center"
+            android:text="Click on the position in the rose to which the following sentence belongs:"
             android:textColor="@color/textColor"
             android:textSize="15sp" />
 
