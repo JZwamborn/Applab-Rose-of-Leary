@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("Scores", jsonText);
         editor.apply();
 
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                editText.setText("");
+            }
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -29,6 +29,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:autoText="true"
+            android:imeOptions="actionDone"
             android:backgroundTint="@color/colorPrimary"
             android:ems="10"
             android:inputType="textPersonName"
