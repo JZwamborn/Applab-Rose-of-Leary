@@ -88,8 +88,6 @@ public class ClassifierActivity extends AppCompatActivity {
         });
 
 
-
-
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -103,6 +101,12 @@ public class ClassifierActivity extends AppCompatActivity {
             public void onClick(View v){
                 editText.setText("");
                 updateSentences();
+                RB.setVisibility(View.INVISIBLE);
+                RO.setVisibility(View.INVISIBLE);
+                LB.setVisibility(View.INVISIBLE);
+                rose.setVisibility(View.VISIBLE);
+                LO.setVisibility(View.INVISIBLE);
+
 
             }
         });

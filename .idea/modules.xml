@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AppFranka.iml" filepath="$PROJECT_DIR$/AppFranka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Applab-Rose-of-Leary.iml" filepath="$PROJECT_DIR$/Applab-Rose-of-Leary.iml" />
-      <module fileurl="file://D:/../frank/AndroidStudioProjects/AppFranka/Applab-Rose-of-Leary.iml" filepath="D:/../frank/AndroidStudioProjects/AppFranka/Applab-Rose-of-Leary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
